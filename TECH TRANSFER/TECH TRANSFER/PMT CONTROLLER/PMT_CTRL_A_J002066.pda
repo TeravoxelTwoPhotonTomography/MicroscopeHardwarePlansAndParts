@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Assembly designer="4.3.1" name="L Shape" tag="3D" verified="false" version="6">
+  <Description>An L-Shaped Enclosure</Description>
+  <Manufacturer>Protocase</Manufacturer>
+  <PartNumber>L-Shape Template</PartNumber>
+  <Revision rev="5">
+    <RevisionMessage baseRevision="4" message="The rear panel now covers the sides for a more uniform rear."/>
+    <FaceFeatureTransfer baseRevision="4" from="Top" to="Top"/>
+    <FaceFeatureTransfer baseRevision="4" from="Front" to="Front"/>
+    <FaceFeatureTransfer baseRevision="4" from="Rear" to="Rear">
+      <Origin shiftX="-PartsGap-Thickness"/>
+    </FaceFeatureTransfer>
+    <FaceFeatureTransfer baseRevision="4" from="Right Side" to="Right Side"/>
+    <FaceFeatureTransfer baseRevision="4" from="Left Side" to="Left Side"/>
+    <FaceFeatureTransfer baseRevision="4" from="Chassis Base" to="Chassis Base"/>
+  </Revision>
+  <ID>b081b14e-760a-4fff-8647-3b1e18577f1c</ID>
+  <DesignID>L-Shape Template Rev 5</DesignID>
+  <MetalInfo color="Default Color" material="MetalType" thickness="Thickness"/>
+  <Parameters>
+    <Parameter default="8.0" description="the width of the box" max="50" min="1" name="Width" template="true"/>
+    <Parameter default="5.0" description="the depth of the box" max="50" min="1" name="Depth" template="true"/>
+    <Parameter default="3.0" description="the height of the box" max="24" min="1" name="Height" template="true"/>
+    <Parameter default="18" description="the thickness of the box" name="Thickness" template="true" units="MetalThickness"/>
+    <Parameter default=".1" description="the bend radius" name="BendRad"/>
+    <Parameter default="Cold Rolled Steel" description="the type of metal used" name="MetalType" template="true" units="MetalType"/>
+    <Parameter default="Black Sandtex, Low Gloss, Fine Texture Polyester Powder" description="Default Powder Coat" name="Default Color" template="true" units="MetalColor"/>
+    <Parameter default="Use Default" description="the color of the box" name="ChassisColor" template="true" units="MetalColor"/>
+    <Parameter default="Use Default" description="the color of the top" name="TopColor" template="true" units="MetalColor"/>
+    <Parameter default=".427" description="the width of a flange" name="FlangeSize"/>
+    <Parameter default=".238" description="The length of the tabs for the corners" name="TabSize"/>
+    <Parameter default=".012" description="the width of a Notch" name="NotchSize"/>
+    <Parameter default=".625" description="the distance from the edge of a vertical flange to place a hole if not centered." name="HoleOffsetH"/>
+    <Parameter default=".358" description="the distance from the center of a hole on the chassis flanges to the front or rear of the enclosure." name="ChassisFlangeHoleOffset"/>
+    <Parameter default=".225" description="the distance from the edge of a horizontal flange to place a hole if not centered." name="HoleOffsetD"/>
+    <Parameter default=".165/2" description="the radius of a screw hole used for assembly, 6_32radius" name="HoleRadius"/>
+    <Parameter default=".01" description="the gap between parts (for manufacturing)" name="PartsGap"/>
+    <Parameter default=".03" description="the overhang for the cover" name="Overhang"/>
+    <Constraint formula="IfElse(((Width &gt; 3.0) OR (Depth &gt; 3.0)),IfElse((Height LEQ (Depth-2.0)),1.0,0.0),1.0)" message="Depth must be greater than height by 2 inches for all enclosures larger than 3x3x3"/>
+    <Constraint formula="IfElse(((Width &gt; 3.0) OR (Depth &gt; 3.0)), IfElse((Height LEQ (Width-2.0)),1.0,0.0), 1.0)" message="Width must be greater than height by 2 inches for all enclosures larger than 3x3x3"/>
+    <Constraint formula="IfElse((Width LEQ 3.0) AND (Depth LEQ 3.0), IfElse((Height &gt; Width),0.0,1.0), 1.0)" message="Width must be greater than or equal to height for all enclosures not larger than 3x3x3"/>
+    <Constraint formula="IfElse((Width LEQ 3.0) AND (Depth LEQ 3.0), IfElse((Height &gt; Depth),0.0,1.0), 1.0)" message="Depth must be greater than or equal to height for all enclosures not larger than 3x3x3"/>
+  </Parameters>
+  <Transforms>
+    <View3D shiftX="IfElse(Height&gt;1.5,0,-BendRad-Thickness)" shiftY="-BendRad-Thickness"/>
+  </Transforms>
+  <Connections>
+    <Absolute/>
+  </Connections>
+  <Components>
+    <Assembly designer="4.3.1" name="Base" tag="3D" template="true" verified="false" version="6">
+      <Description>The bottom of an L-shape box</Description>
+      <DesignID/>
+      <MetalInfo color="ChassisColor" material="MetalType" thickness="Thickness"/>
+      <Parameters>
+        <Parameter default="PartsGap" description="" name="PartsGap"/>
+        <Parameter default="Overhang" description="" name="Overhang"/>
+        <Parameter default="TabSize" description="" name="TabSize"/>
+        <Parameter default="Width" description="the length of the chassis" name="Width"/>
+        <Parameter default="Depth" description="" name="Depth"/>
+        <Parameter default="NotchSize" description="the width of a Notch" name="NotchSize"/>
+        <Parameter default="Height" description="the height of the chassis" name="Height"/>
+        <Parameter default="Thickness" description="the thickness of the chassis" name="Thickness"/>
+        <Parameter default="MetalType" description="The Metal Type used" name="MetalType"/>
+        <Parameter default="FlangeSize" description="the width of a flange" name="FlangeSize"/>
+        <Parameter default="BendRad" description="the bend radius" name="BendRad"/>
+        <Parameter default="ChassisColor" description="" name="ChassisColor"/>
+        <Parameter default="Height-Thickness-TabSize-NotchSize" description="" name="FLH"/>
+        <Parameter default="Width-2*TabSize-2*NotchSize" description="" name="FLW"/>
+        <Parameter default="IfElse(Height&gt;1.5,Depth-BendRad-2*Thickness-FlangeSize-NotchSize-PartsGap,Depth-2*Thickness-PartsGap)" description="" name="FLD"/>
+        <Parameter default="HoleOffsetH" description="" name="HoleOffsetH"/>
+        <Parameter default="ChassisFlangeHoleOffset" description="" name="ChassisFlangeHoleOffset"/>
+        <Parameter default="HoleOffsetD" description="" name="HoleOffsetD"/>
+      </Parameters>
+      <Connections>
+        <Absolute/>
+      </Connections>
+      <Components>
+        <PolyFace name="Chassis Base" pickable="true" template="true" verified="false" version="6">
+          <FaceCoordinateTransform invertX="true">
+            <Origin dx="IfElse(Height&gt;1.5, 0, -BendRad-Thickness)" dy="-BendRad-Thickness"/>
+            <xDir dx="1.0" dy="0.0"/>
+            <yDir dx="0.0" dy="1.0"/>
+          </FaceCoordinateTransform>
+          <Connections>
+            <Absolute/>
+          </Connections>
+          <Components>
+            <Bend angle="90" irad="BendRad" kfactor="0.5" length="IfElse(Height&gt;1.5,Width,Width-2*BendRad-2*Thickness)" name="base-Front bend" taper0="IfElse(Height&gt;1.5,BendRad+Thickness,-BendRad-Thickness)" taper1="IfElse(Height&gt;1.5,BendRad+Thickness,-BendRad-Thickness)" template="true" verified="false" version="6">
+              <Connections>
+                <Seam childSideLoc="0" parentSide="0" parentSideLoc="IfElse(Height&gt;1.5,Width,Width-2*BendRad-2*Thickness)"/>
+              </Connections>
+              <Components>
+                <PolyFace name="Front" pickable="true" template="true" verified="false" version="6">
+                  <FaceCoordinateTransform>
+                    <Origin dx="IfElse(Height&gt;1.5, Width-BendRad-Thickness, Width)" dy="-BendRad-Thickness"/>
+                    <xDir dx="-1.0" dy="0.0"/>
+                    <yDir dx="0.0" dy="1.0"/>
+                  </FaceCoordinateTransform>
+                  <Connections>
+                    <Seam childSideLoc="IfElse(Height&gt; 1.5,-BendRad-Thickness,BendRad+Thickness)" parentSide="0" parentSideLoc="0"/>
+                  </Connections>
+                  <Components>
+                    <Bend angle="90" exist="Height &gt; 1.5" irad="BendRad" kfactor="0.5" length="Height - TabSize-NotchSize - BendRad - Thickness" name="Front-Left flange" taper1="-BendRad" template="true" verified="false" version="6">
+                      <Connections>
+                        <Seam childSideLoc="0" parentSide="1" parentSideLoc="Height - NotchSize - TabSize-BendRad-Thickness"/>
+                      </Connections>
+                      <Components>
+                        <RectFace length="Height - NotchSize - TabSize-Thickness " name="Left Flange" template="true" verified="false" version="6" width="FlangeSize">
+                          <FaceCoordinateTransform>
+                            <Origin dx="0.0" dy="0.0"/>
+                            <xDir dx="1.0" dy="0.0"/>
+                            <yDir dx="0.0" dy="1.0"/>
+                          </FaceCoordinateTransform>
+                          <Connections>
+                            <Seam childSideLoc="0" parentSide="1" parentSideLoc="0"/>
+                          </Connections>
+                          <Components/>
+                          <Flats name="Left Flange Flats">
+                            <PEM OriginX="HoleOffsetH" OriginY="FlangeSize/2" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                            <PEM OriginX="Height/2 + .025" OriginY="FlangeSize/2" exist="IfElse(10&gt;Height,0.0,1.0)" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                          </Flats>
+                        </RectFace>
+                      </Components>
+                      <Flats name="Front-Left flange Flats"/>
+                    </Bend>
+                    <Bend angle="90" exist="Height&gt; 1.5" irad="BendRad" kfactor="0.5" length="Height - TabSize-NotchSize - BendRad - Thickness" name="Front-Right flange" taper0="-BendRad" template="true" verified="false" version="6">
+                      <Connections>
+                        <Seam childSideLoc="0" parentSide="IfElse(18&gt;Width,11,19)" parentSideLoc="Height - NotchSize -TabSize-BendRad-Thickness"/>
+                      </Connections>
+                      <Components>
+                        <RectFace length="Height - NotchSize - TabSize -Thickness" name="Right flange" pickable="true" template="true" verified="false" version="6" width="FlangeSize">
+                          <FaceCoordinateTransform>
+                            <Origin dx="0.0" dy="0.0"/>
+                            <xDir dx="1.0" dy="0.0"/>
+                            <yDir dx="0.0" dy="1.0"/>
+                          </FaceCoordinateTransform>
+                          <Connections>
+                            <Seam childSideLoc="0" parentSide="1" parentSideLoc="-BendRad"/>
+                          </Connections>
+                          <Components/>
+                          <Flats name="Right flange Flats">
+                            <PEM OriginX="FLH-HoleOffsetH" OriginY="FlangeSize/2" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                            <PEM OriginX="FLH - Height/2 - .025" OriginY="FlangeSize/2" exist="IfElse(10&gt;Height,0.0,1.0)" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                          </Flats>
+                        </RectFace>
+                      </Components>
+                      <Flats name="Front-Right flange Flats"/>
+                    </Bend>
+                    <Bend angle="90" exist="IfElse(18&gt;Width,0.0,1.0)" irad="BendRad" kfactor="0.5" length="Width - 2*TabSize-2*NotchSize" name="Front-Top Flange" template="true" verified="false" version="6">
+                      <Parameters>
+                        <Parameter default="PartsGap" description="" name="PartsGap"/>
+                        <Parameter default="Overhang" description="" name="Overhang"/>
+                        <Parameter default="TabSize" description="" name="TabSize"/>
+                        <Parameter default="Width" description="the length of the chassis" name="Width"/>
+                        <Parameter default="Depth" description="" name="Depth"/>
+                        <Parameter default="NotchSize" description="the width of a Notch" name="NotchSize"/>
+                        <Parameter default="Height" description="the height of the chassis" name="Height"/>
+                        <Parameter default="Thickness" description="the thickness of the chassis" name="Thickness"/>
+                        <Parameter default="MetalType" description="The Metal Type used" name="MetalType"/>
+                        <Parameter default="FlangeSize" description="the width of a flange" name="FlangeSize"/>
+                        <Parameter default="BendRad" description="the bend radius" name="BendRad"/>
+                        <Parameter default="ChassisColor" description="" name="ChassisColor"/>
+                        <Parameter default="Height-Thickness-TabSize-NotchSize" description="" name="FLH"/>
+                        <Parameter default="Width-2*TabSize-2*NotchSize" description="" name="FLW"/>
+                        <Parameter default="IfElse(Height&gt;1.5,Depth-BendRad-2*Thickness-FlangeSize-NotchSize-PartsGap,Depth-2*Thickness-PartsGap)" description="" name="FLD"/>
+                        <Parameter default="HoleOffsetH" description="" name="HoleOffsetH"/>
+                        <Parameter default="ChassisFlangeHoleOffset" description="" name="ChassisFlangeHoleOffset"/>
+                        <Parameter default="HoleOffsetD" description="" name="HoleOffsetD"/>
+                      </Parameters>
+                      <Connections>
+                        <Seam childSideLoc="0" parentSide="IfElse(Height&gt; 1.5,10,6)" parentSideLoc="Width-2*TabSize-2*NotchSize"/>
+                      </Connections>
+                      <Components>
+                        <RectFace length="Width - 2*TabSize-2*NotchSize" name="Top Flange" template="true" verified="false" version="6" width="FlangeSize">
+                          <FaceCoordinateTransform>
+                            <Origin dx="0.0" dy="0.0"/>
+                            <xDir dx="1.0" dy="0.0"/>
+                            <yDir dx="0.0" dy="1.0"/>
+                          </FaceCoordinateTransform>
+                          <Parameters>
+                            <Parameter default="PartsGap" description="" name="PartsGap"/>
+                            <Parameter default="Overhang" description="" name="Overhang"/>
+                            <Parameter default="TabSize" description="" name="TabSize"/>
+                            <Parameter default="Width" description="the length of the chassis" name="Width"/>
+                            <Parameter default="Depth" description="" name="Depth"/>
+                            <Parameter default="NotchSize" description="the width of a Notch" name="NotchSize"/>
+                            <Parameter default="Height" description="the height of the chassis" name="Height"/>
+                            <Parameter default="Thickness" description="the thickness of the chassis" name="Thickness"/>
+                            <Parameter default="MetalType" description="The Metal Type used" name="MetalType"/>
+                            <Parameter default="FlangeSize" description="the width of a flange" name="FlangeSize"/>
+                            <Parameter default="BendRad" description="the bend radius" name="BendRad"/>
+                            <Parameter default="ChassisColor" description="" name="ChassisColor"/>
+                            <Parameter default="Height-Thickness-TabSize-NotchSize" description="" name="FLH"/>
+                            <Parameter default="Width-2*TabSize-2*NotchSize" description="" name="FLW"/>
+                            <Parameter default="IfElse(Height&gt;1.5,Depth-BendRad-2*Thickness-FlangeSize-NotchSize-PartsGap,Depth-2*Thickness-PartsGap)" description="" name="FLD"/>
+                            <Parameter default="HoleOffsetH" description="" name="HoleOffsetH"/>
+                            <Parameter default="ChassisFlangeHoleOffset" description="" name="ChassisFlangeHoleOffset"/>
+                            <Parameter default="HoleOffsetD" description="" name="HoleOffsetD"/>
+                          </Parameters>
+                          <Connections>
+                            <Seam childSideLoc="0" parentSide="1" parentSideLoc="0"/>
+                          </Connections>
+                          <Components/>
+                          <Flats name="Top Flange Flats">
+                            <PEM OriginX="(FLW)/2" OriginY="FlangeSize/2" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                            <PEM OriginX="FLW-HoleOffsetD" OriginY="FlangeSize/2" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                            <PEM OriginX="HoleOffsetD" OriginY="FlangeSize/2" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                          </Flats>
+                        </RectFace>
+                      </Components>
+                      <Flats name="Front-Top Flange Flats"/>
+                    </Bend>
+                  </Components>
+                  <Flats name="Front Flats">
+                    <Line OriginX="7.2897588408159475" OriginY="2.1921082222500394" color="Yellow Pantone 123C" dx="0.0" dy="0.41000000000000014" name="line" onBottom="true" rotation="0.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>9f5047b9-d9f3-4a75-94e1-588b8026b872</ID>
+                    </Line>
+                    <Rectangle OriginX="8.8" OriginY="1.5" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="1.0" type="CONSTRUCT" verified="false" version="6" width="0.0">
+                      <ID>376e043f-7bd7-4896-98da-7a1d4b9d7541</ID>
+                    </Rectangle>
+                    <Rectangle OriginX="0.4" OriginY="1.7" color="Black" filled="False" height="0.066" name="rectangle" onBottom="true" rotation="0.0" thickness="1.0" type="CONSTRUCT" verified="false" version="6" width="7.1">
+                      <ID>493f005d-0a93-4bed-a63c-90cea66beafe</ID>
+                    </Rectangle>
+                    <Line OriginX="6.7" OriginY="1.6" color="Yellow Pantone 123C" dx="-0.21999999999999975" dy="0.0" name="line" onBottom="true" rotation="0.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>27cddcf3-cf23-46c8-a654-3e4c803f3477</ID>
+                    </Line>
+                    <CircleArc3 OriginX="6.48" OriginY="1.6" color="Yellow Pantone 123C" name="arc" onBottom="true" rotation="90.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <PtEnd dx="-0.1767766952541821" dy="0.17677669530010026"/>
+                      <PtOn dx="-0.0609522967" dy="0.13354665362143295"/>
+                      <ID>a9068c1e-98b0-4783-945b-c2c782f2e93e</ID>
+                    </CircleArc3>
+                    <CircleArc3 OriginX="6.69" OriginY="1.6" color="Yellow Pantone 123C" name="arc" onBottom="true" rotation="90.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <PtEnd dx="0.6000000000000002" dy="-0.6"/>
+                      <PtOn dx="0.15000000000000002" dy="-0.4"/>
+                      <ID>6b990e02-4665-416d-9af4-ab85d265c3be</ID>
+                    </CircleArc3>
+                    <Line OriginX="1.7800000000000002" OriginY="1.433" color="Yellow Pantone 123C" dx="0.0" dy="-0.45000000000000007" name="line" onBottom="true" rotation="0.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>1d50244f-2bfa-4ea8-b79b-ccf39c1c9889</ID>
+                    </Line>
+                    <CircleArc3 OriginX="1.7800000000000002" OriginY="1.433" color="Yellow Pantone 123C" name="arc" onBottom="true" rotation="0.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <PtEnd dx="-0.1767766952541821" dy="0.17677669530010026"/>
+                      <PtOn dx="-0.0609522967" dy="0.13354665362143295"/>
+                      <ID>a9068c1e-98b0-4783-945b-c2c782f2e93e</ID>
+                    </CircleArc3>
+                    <Circle OriginX="6.69" OriginY="2.208" color="Black" filled="False" name="circle" onBottom="true" radius="0.2055" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6">
+                      <ID>140b124c-df20-4433-bd5b-f0dee858c342</ID>
+                    </Circle>
+                    <Rectangle OriginX="5.66" OriginY="1.057" color="Black" filled="False" height="0.62" name="rectangle" onBottom="true" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6" width="0.54">
+                      <ID>83e32265-ce1a-4dd3-956d-7db7cf157e17</ID>
+                    </Rectangle>
+                    <Circle OriginX="4.93" OriginY="1.421" color="Black" filled="False" name="circle" onBottom="true" radius="0.122" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6">
+                      <ID>79de582d-4348-4b9e-9b15-9c246bc31a66</ID>
+                    </Circle>
+                    <Circle OriginX="3.1300000000000003" OriginY="1.421" color="Black" filled="False" name="circle" onBottom="true" radius="0.122" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6">
+                      <ID>7071f2ce-e38e-41d8-b449-0b088bc20869</ID>
+                    </Circle>
+                    <Rectangle OriginX="4.28" OriginY="1.964" color="Black" filled="False" height="0.838" name="rectangle" onBottom="true" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6" width="1.336">
+                      <ID>28ce4ba4-801a-4dde-ae27-c0048b06d081</ID>
+                    </Rectangle>
+                    <Rectangle OriginX="2.4800000000000004" OriginY="1.955" color="Black" filled="False" height="0.838" name="rectangle" onBottom="true" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6" width="1.336">
+                      <ID>9737bdc9-e742-4278-968b-09ee27ab8387</ID>
+                    </Rectangle>
+                    <Rectangle OriginX="1.8900000000000006" OriginY="1.057" color="Black" filled="False" height="0.62" name="rectangle" onBottom="true" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6" width="0.54">
+                      <ID>4df80c6d-126d-41c8-a6a3-c7f6104443eb</ID>
+                    </Rectangle>
+                    <Circle OriginX="0.8600000000000003" OriginY="1.177" color="Black" filled="False" name="circle" onBottom="true" radius="0.06" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6">
+                      <ID>0f13d771-28c0-410f-b199-5e5ff8c490bd</ID>
+                    </Circle>
+                    <Circle OriginX="0.8600000000000003" OriginY="1.377" color="Black" filled="False" name="circle" onBottom="true" radius="0.06" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6">
+                      <ID>c233f7fd-aa06-4681-acc9-8360504f6e55</ID>
+                    </Circle>
+                    <Circle OriginX="0.8600000000000003" OriginY="1.5770000000000002" color="Black" filled="False" name="circle" onBottom="true" radius="0.06" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6">
+                      <ID>2dfe0e63-71a2-4c40-a5ba-5fd90c5ec4b5</ID>
+                    </Circle>
+                    <Circle OriginX="0.5499999999999998" OriginY="1.4217000000000002" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6">
+                      <ID>28ead249-a291-47b2-aabb-3a155686c416</ID>
+                    </Circle>
+                    <Circle OriginX="1.4300000000000006" OriginY="2.208" color="Black" filled="False" name="circle" onBottom="true" radius="0.2055" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6">
+                      <ID>14970c9f-99b5-4cb6-9452-399909f8bccf</ID>
+                    </Circle>
+                    <Circle OriginX="7.45" OriginY="1.427" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6">
+                      <ID>57442c29-15dd-4db8-850e-bb745dd4e44a</ID>
+                    </Circle>
+                    <Text2D OriginX="2.8660564457000004" OriginY="1.0680620902000002" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="16" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>2e476448-7f4f-4e71-88f7-1d82799a204c</ID>PMT1</Text2D>
+                    <Text2D OriginX="1.9891135942" OriginY="2.5868864058" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="14" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>04b7e286-6633-4824-b507-05f6303b0005</ID>Vctl</Text2D>
+                    <Text2D OriginX="1.9672404497000002" OriginY="2.4228785764" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="12" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>0f516252-ca38-475f-b2e9-a7730d636cf9</ID>(Gain)</Text2D>
+                    <Text2D OriginX="0.9750000000000005" OriginY="1.516" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="8" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>024c777d-6aed-4236-9e11-ab1d7e395254</ID>Power</Text2D>
+                    <Text2D OriginX="0.9630000000000001" OriginY="1.3250000000000002" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="8" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>c0587b82-8b78-40f5-9c30-6df9b3681b58</ID>HV On</Text2D>
+                    <Text2D OriginX="0.9590000000000005" OriginY="1.122" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="8" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>797f6d7a-8390-42b1-8f89-3d8582d7748f</ID>Tripped</Text2D>
+                    <Text2D OriginX="0.40406909599999974" OriginY="1.0628349265" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>281a3317-011d-4045-8b57-4f26750fc480</ID>Trip</Text2D>
+                    <Text2D OriginX="0.3416305254000003" OriginY="0.8916276384000001" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>961a0c86-c359-4555-b996-b60b6f49390e</ID>Reset</Text2D>
+                    <Text2D OriginX="5.751934233" OriginY="2.5923125481000002" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="14" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>04b7e286-6633-4824-b507-05f6303b0005</ID>Vctl</Text2D>
+                    <Text2D OriginX="5.6940540907" OriginY="2.4283188116" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="12" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>0f516252-ca38-475f-b2e9-a7730d636cf9</ID>(Gain)</Text2D>
+                    <Text2D OriginX="4.6232714584" OriginY="1.0826055035" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="16" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>2e476448-7f4f-4e71-88f7-1d82799a204c</ID>PMT2</Text2D>
+                    <Text2D OriginX="6.8854203528" OriginY="1.4347097024000002" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>4b007b62-5f6d-4534-8840-5014c276d71d</ID>TTL</Text2D>
+                    <Text2D OriginX="6.7837227034000005" OriginY="1.246160996" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>dd0508a1-3906-4043-8f3f-1c3dd9e844d0</ID>HV Ctl</Text2D>
+                    <Text2D OriginX="7.2" OriginY="1.6600000000000001" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="8" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>f9d6a892-2f47-46c7-a1ae-e042a70bb0d8</ID>Normal</Text2D>
+                    <Text2D OriginX="6.970000000000001" OriginY="1.06" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="8" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>7036bba8-6a85-437a-bab0-a512dc2476e1</ID>Override On</Text2D>
+                    <Line OriginX="7.5776948891" OriginY="1.7306103456000002" color="Yellow Pantone 123C" dx="0.02992345011830011" dy="0.03992044778603976" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>0db1197c-8c0c-4b99-809f-d658980ec1bb</ID>
+                    </Line>
+                    <Line OriginX="7.6094297729" OriginY="1.775671591" color="Yellow Pantone 123C" dx="0.0" dy="-0.12058362976148129" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>55439e98-967e-4bd0-93bd-060c98d4f92a</ID>
+                    </Line>
+                    <Line OriginX="7.6408606929000005" OriginY="1.7318625707000002" color="Yellow Pantone 123C" dx="-0.03032093501191202" dy="0.039458751042899864" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>96c2eeb8-7590-42b6-9045-260d6258628d</ID>
+                    </Line>
+                    <Line OriginX="7.624259325000001" OriginY="1.0383604981" color="Yellow Pantone 123C" dx="0.024893755903454995" dy="0.04243529489346243" name="line" onBottom="true" rotation="-5.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>0db1197c-8c0c-4b99-809f-d658980ec1bb</ID>
+                    </Line>
+                    <Line OriginX="7.6230392162000005" OriginY="1.1550222257" color="Yellow Pantone 123C" dx="0.0" dy="-0.12058362976148129" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>55439e98-967e-4bd0-93bd-060c98d4f92a</ID>
+                    </Line>
+                    <Line OriginX="7.6217828404" OriginY="1.0393226115" color="Yellow Pantone 123C" dx="-0.03032093501191202" dy="0.039458751042899864" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>96c2eeb8-7590-42b6-9045-260d6258628d</ID>
+                    </Line>
+                    <CircleArc3 OriginX="0.8300000000000001" OriginY="2.21" color="Yellow Pantone 123C" name="arc" onBottom="true" rotation="0.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <PtEnd dx="0.6000000000000002" dy="-0.6"/>
+                      <PtOn dx="0.15000000000000002" dy="-0.4"/>
+                      <ID>6b990e02-4665-416d-9af4-ab85d265c3be</ID>
+                    </CircleArc3>
+                    <Line OriginX="1.4300000000000006" OriginY="1.61" color="Yellow Pantone 123C" dx="0.050000000000000044" dy="0.0" name="line" onBottom="true" rotation="0.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>1c0a500a-f1b2-4a8f-b09e-15f69f3a7041</ID>
+                    </Line>
+                    <Line OriginX="1.4800000000000004" OriginY="1.61" color="Yellow Pantone 123C" dx="0.1299999999999999" dy="0.0" name="line" onBottom="true" rotation="0.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>c161bc53-cb06-4bcc-b61a-fc99a0c15952</ID>
+                    </Line>
+                    <Line OriginX="0.8300000000000001" OriginY="2.2" color="Yellow Pantone 123C" dx="0.0" dy="0.41000000000000014" name="line" onBottom="true" rotation="0.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>9f5047b9-d9f3-4a75-94e1-588b8026b872</ID>
+                    </Line>
+                    <Line OriginX="6.305" OriginY="1.4460000000000002" color="Yellow Pantone 123C" dx="0.0" dy="-0.4700000000000001" name="line" onBottom="true" rotation="0.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>fc056332-bdbf-4090-a1b5-280d7acf4c25</ID>
+                    </Line>
+                    <Line OriginX="1.7650000000000006" OriginY="0.9900000000000001" color="Yellow Pantone 123C" dx="4.540000000000001" dy="0.0" name="line" onBottom="true" rotation="0.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>fda0ac0f-6f9b-4209-97a0-52688b4449c5</ID>
+                    </Line>
+                    <Line OriginX="1.8399999999999999" OriginY="0.9900000000000001" color="Yellow Pantone 123C" dx="-0.020000000000000018" dy="0.0" name="line" onBottom="true" rotation="0.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>e135d305-488f-410a-b8cb-e2c04bd45042</ID>
+                    </Line>
+                    <Line OriginX="1.8100000000000005" OriginY="0.9900000000000001" color="Yellow Pantone 123C" dx="-0.020000000000000018" dy="0.0" name="line" onBottom="true" rotation="0.0" thickness="2.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>34d68760-6621-4205-9982-3b8100245004</ID>
+                    </Line>
+                    <Text2D OriginX="4.601298701298702" OriginY="0.43766233766233764" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="20" fontStyle="Bold" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>bd242aea-e868-4a1b-8b65-58cedb9782cc</ID>GaAsP PMT Controller</Text2D>
+                    <Rectangle OriginX="IfElse(Height&gt;1.5,-BendRad-Thickness,0)" OriginY="-BendRad-Thickness" color="Black" height="Height" name="Inside Silk Exclusion" onBottom="false" rotation="0" template="true" type="NO_SILK" verified="false" version="6" width="Width"/>
+                    <Rectangle OriginX="0" OriginY="0" color="Black" height=".25" name="Bottom Bend Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="Width"/>
+                    <Rectangle OriginX="TabSize+NotchSize" OriginY="Height-0.25" color="Black" exist="Width GEQ 18" height=".25" name="Top Bend Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="Width-2*(TabSize+NotchSize)"/>
+                    <Rectangle OriginX="0" OriginY="0.25" color="Black" exist="Height&gt; 1.5" height="Height-TabSize-NotchSize - 0.25" name="Left Side Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="0.25"/>
+                    <Rectangle OriginX="Width-0.25" OriginY="0.25" color="Black" exist="Height&gt; 1.5" height="Height-TabSize-NotchSize - 0.25" name="Right side Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="0.25"/>
+                    <Rectangle OriginX="4.3" OriginY="1.2999999999999998" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6" width="0.0">
+                      <ID>c4e62590-24e8-4b8c-92fd-c0685269caec</ID>
+                    </Rectangle>
+                    <Rectangle OriginX="4.6" OriginY="1.0999999999999999" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6" width="0.0">
+                      <ID>496f905d-94db-4cb8-bc08-ae866363e5ea</ID>
+                    </Rectangle>
+                    <Rectangle OriginX="5.4" OriginY="-0.10000000000000009" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.25" type="CUTOUT" verified="false" version="6" width="0.0">
+                      <ID>a1e6bc76-7c9f-45c4-a2a0-1313247ec755</ID>
+                    </Rectangle>
+                  </Flats>
+                  <Vertices>
+                    <Vertex x="0" y="0" z="0"/>
+                    <Vertex x="IfElse(Height&gt; 1.5,Width - 2*Thickness - 2*BendRad,Width)" y="0" z="0"/>
+                    <Vertex exist="(Height)&gt; 1.5" x="Width - 2*Thickness - 2*BendRad" y="Height - TabSize-NotchSize - BendRad - Thickness" z="0"/>
+                    <Vertex exist="(Height)&gt; 1.5" x="Width - 2*Thickness - 2*BendRad-NotchSize" y="Height - TabSize-NotchSize - BendRad - Thickness" z="0"/>
+                    <Vertex exist="(Height)&gt; 1.5" x="Width - 2*Thickness - 2*BendRad-NotchSize" y="Height - TabSize - BendRad - Thickness" z="0"/>
+                    <Vertex exist="(Height)&gt; 1.5" x="Width - Thickness - BendRad" y="Height - TabSize - BendRad - Thickness" z="0"/>
+                    <Vertex x="IfElse(Height&gt; 1.5,Width - Thickness - BendRad,Width)" y="Height - BendRad - Thickness" z="0"/>
+                    <Vertex exist="IfElse(18&gt;Width,0.0,1.0)" x="IfElse(Height&gt;1.5,Width - Thickness - BendRad - TabSize,Width-TabSize)" y="Height - BendRad - Thickness" z="0"/>
+                    <Vertex exist="IfElse(18&gt;Width,0.0,1.0)" x="IfElse(Height&gt;1.5,Width - Thickness - BendRad - TabSize, Width-TabSize)" y="Height-2*BendRad-2*Thickness-NotchSize" z="0"/>
+                    <Vertex exist="IfElse(18&gt;Width,0.0,1.0)" x="IfElse(Height&gt;1.5,Width - Thickness - BendRad - TabSize-NotchSize,Width-TabSize-NotchSize)" y="Height-2*BendRad-2*Thickness-NotchSize" z="0"/>
+                    <Vertex exist="IfElse(18&gt;Width,0.0,1.0)" x="IfElse(Height&gt;1.5,Width - Thickness - BendRad - TabSize-NotchSize,Width-TabSize-NotchSize)" y="Height-2*BendRad-2*Thickness" z="0"/>
+                    <Vertex exist="IfElse(18&gt;Width,0.0,1.0)" x="IfElse(Height&gt;1.5,TabSize - Thickness - BendRad+NotchSize,TabSize+NotchSize)" y="Height-2*BendRad-2*Thickness" z="0"/>
+                    <Vertex exist="IfElse(18&gt;Width,0.0,1.0)" x="IfElse(Height&gt;1.5,TabSize - Thickness - BendRad+NotchSize,TabSize+NotchSize)" y="Height-2*BendRad-2*Thickness-NotchSize" z="0"/>
+                    <Vertex exist="IfElse(18&gt;Width,0.0,1.0)" x="IfElse(Height&gt;1.5,TabSize - Thickness - BendRad,TabSize)" y="Height-2*BendRad-2*Thickness-NotchSize" z="0"/>
+                    <Vertex exist="IfElse(18&gt;Width,0.0,1.0)" x="IfElse(Height&gt;1.5,TabSize - Thickness - BendRad,TabSize)" y="Height - BendRad - Thickness" z="0"/>
+                    <Vertex x="IfElse(Height&gt; 1.5,- Thickness - BendRad,0)" y="Height - BendRad - Thickness" z="0"/>
+                    <Vertex exist="Height&gt; 1.5" x="- Thickness - BendRad" y="Height-TabSize - BendRad - Thickness" z="0"/>
+                    <Vertex exist="Height&gt; 1.5" x="NotchSize" y="Height-TabSize - BendRad - Thickness" z="0"/>
+                    <Vertex exist="Height&gt; 1.5" x="NotchSize" y="Height-TabSize-NotchSize - BendRad - Thickness" z="0"/>
+                    <Vertex exist="Height&gt; 1.5" x="0" y="Height-TabSize-NotchSize-BendRad-Thickness" z="0"/>
+                  </Vertices>
+                </PolyFace>
+              </Components>
+              <Flats name="base-Front bend Flats"/>
+            </Bend>
+            <Bend angle="90" irad="BendRad" kfactor="0.5" length="IfElse(Height&gt;1.5,Depth-2*Thickness-BendRad-FlangeSize-NotchSize-PartsGap,Depth-2*Thickness-BendRad-PartsGap)" name="Chassis-Right side flange" taper1="IfElse(Height&gt;1.5,0,-BendRad)" template="true" verified="false" version="6">
+              <Connections>
+                <Seam childSideLoc="0" parentSide="IfElse(Height&gt;1.5,5,1)" parentSideLoc="IfElse(Height&gt;1.5,Depth-2*Thickness-BendRad-FlangeSize-NotchSize-PartsGap,Depth-BendRad-2*Thickness-PartsGap)"/>
+              </Connections>
+              <Components>
+                <RectFace length="IfElse(Height&gt;1.5,Depth-2*Thickness-BendRad-FlangeSize-NotchSize-PartsGap,Depth-2*Thickness-PartsGap)" name="Chassis right flange" pickable="true" template="true" verified="false" version="6" width="FlangeSize">
+                  <FaceCoordinateTransform>
+                    <Origin dx="0.0" dy="0.0"/>
+                    <xDir dx="1.0" dy="0.0"/>
+                    <yDir dx="0.0" dy="1.0"/>
+                  </FaceCoordinateTransform>
+                  <AttachPts>
+                    <MatePt name="Chassis-Top Point" onBottom="true" x="0" y="0" z="-PartsGap"/>
+                  </AttachPts>
+                  <Connections>
+                    <Seam childSideLoc="0" parentSide="1" parentSideLoc="0"/>
+                  </Connections>
+                  <Components/>
+                  <Flats name="Chassis right flange Flats">
+                    <PEM OriginX="IfElse(Height&gt;1.5,FLD/2,Depth/2 - Thickness - PartsGap)" OriginY="FlangeSize/2" exist="IfElse(12&gt;Depth,0.0,1.0)" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                    <PEM OriginX="IfElse(Height &gt; 1.5,FLD-HoleOffsetD,Depth - Thickness - PartsGap - ChassisFlangeHoleOffset)" OriginY="FlangeSize/2" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                    <PEM OriginX="IfElse(Height &gt; 1.5, HoleOffsetD,ChassisFlangeHoleOffset - Thickness-PartsGap)" OriginY="FlangeSize/2" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                  </Flats>
+                </RectFace>
+              </Components>
+              <Flats name="Chassis-Right side flange Flats"/>
+            </Bend>
+            <Bend angle="90" irad="BendRad" kfactor="0.5" length="IfElse(Height&gt;1.5,Depth-2*Thickness-BendRad-FlangeSize-NotchSize-PartsGap,Depth - 2*Thickness-BendRad-PartsGap)" name="Chassis-Left flange" taper0="IfElse(Height&gt;1.5,0,-BendRad)" template="true" verified="false" version="6">
+              <Connections>
+                <Seam childSideLoc="0" parentSide="IfElse(Height&gt;1.5,7,3)" parentSideLoc="IfElse(Height&gt;1.5,Depth - 2*Thickness-BendRad-FlangeSize-NotchSize-PartsGap,Depth-BendRad-2*Thickness-PartsGap)"/>
+              </Connections>
+              <Components>
+                <RectFace length="IfElse(Height&gt;1.5,Depth - 2*Thickness-BendRad-FlangeSize-NotchSize-PartsGap,Depth-2*Thickness-PartsGap)" name="Left chassis flange" template="true" verified="false" version="6" width="FlangeSize">
+                  <FaceCoordinateTransform>
+                    <Origin dx="0.0" dy="0.0"/>
+                    <xDir dx="1.0" dy="0.0"/>
+                    <yDir dx="0.0" dy="1.0"/>
+                  </FaceCoordinateTransform>
+                  <Connections>
+                    <Seam childSideLoc="0" parentSide="1" parentSideLoc="IfElse(Height&gt;1.5,0,-BendRad)"/>
+                  </Connections>
+                  <Components/>
+                  <Flats name="Left chassis flange Flats">
+                    <PEM OriginX="IfElse(Height&gt;1.5,FLD/2,Depth/2 - Thickness)" OriginY="FlangeSize/2" exist="IfElse(12&gt;Depth,0.0,1.0)" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                    <PEM OriginX="IfElse(Height&gt;1.5,FLD-HoleOffsetD,FLD-ChassisFlangeHoleOffset + Thickness + PartsGap)" OriginY="FlangeSize/2" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                    <PEM OriginX="IfElse(Height&gt;1.5,HoleOffsetD,ChassisFlangeHoleOffset - Thickness)" OriginY="FlangeSize/2" id="PEM Nut: S-632-1ZI" name="S-632-1ZI 6-32 heat treated carbon Nut" onBottom="true" partNum="S-632-1ZI" rev="1" rotation="0.0" template="true" version="6"/>
+                  </Flats>
+                </RectFace>
+              </Components>
+              <Flats name="Chassis-Left flange Flats"/>
+            </Bend>
+          </Components>
+          <Flats name="Chassis Base Flats">
+            <Thing2D OriginX="6.75" OriginY="4.25" name="new assembly" onBottom="true" rotation="0.0" tag="Cutout" verified="false" version="6">
+              <ID>8e393c4c-0675-4cf8-9aab-41d8d9bc8a4d</ID>
+              <Bounds height="3.5" width="1.0" x="-0.125" y="-3.375"/>
+              <Flats name="new assembly">
+                <Circle OriginX="(1.5)-(0.75)" OriginY="(1.0)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.0)-(0.75)" OriginY="(1.0)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.25)-(0.75)" OriginY="(1.75)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.5)-(0.75)" OriginY="(2.0)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.5)-(0.75)" OriginY="(2.5)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.5)-(0.75)" OriginY="(3.0)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.5)-(0.75)" OriginY="(3.5)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.5)-(0.75)" OriginY="(4.0)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.25)-(0.75)" OriginY="(4.25)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.25)-(0.75)" OriginY="(3.75)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.25)-(0.75)" OriginY="(3.25)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.25)-(0.75)" OriginY="(2.75)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.25)-(0.75)" OriginY="(2.25)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.5)-(0.75)" OriginY="(1.5)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.25)-(0.75)" OriginY="(1.25)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.0)-(0.75)" OriginY="(1.5)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.0)-(0.75)" OriginY="(2.0)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.0)-(0.75)" OriginY="(2.5)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.0)-(0.75)" OriginY="(3.0)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.0)-(0.75)" OriginY="(3.5)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(0.75)-(0.75)" OriginY="(1.25)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(0.75)-(0.75)" OriginY="(1.75)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(0.75)-(0.75)" OriginY="(2.25)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(0.75)-(0.75)" OriginY="(2.75)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(0.75)-(0.75)" OriginY="(3.25)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(0.75)-(0.75)" OriginY="(3.75)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="(1.0)-(0.75)" OriginY="(4.0)-(4.25)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+                <Circle OriginX="0.0" OriginY="0.0" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>fbff607b-3a05-449d-8939-d0e1f8e1e98f</ID>
+                </Circle>
+              </Flats>
+            </Thing2D>
+            <Rectangle OriginX="Width - 0.25" OriginY="0.25" color="Black" height="Depth-Thickness-PartsGap-0.25" name="Left Bend Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width=".25"/>
+            <Rectangle OriginX="0" OriginY="0.25" color="Black" height="Depth-Thickness-PartsGap-0.25" name="Right Bend Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="0.25"/>
+            <Rectangle OriginX="0" OriginY="0" color="Black" height=".25" name="Front Bend Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="Width"/>
+          </Flats>
+          <Vertices>
+            <Vertex x="0" y="0" z="0"/>
+            <Vertex x="IfElse(Height&gt;1.5,Width,Width-2*BendRad-2*Thickness)" y="0" z="0"/>
+            <Vertex exist="Height&gt;1.5" x="Width" y="FlangeSize" z="0"/>
+            <Vertex exist="Height&gt;1.5" x="Width-NotchSize-BendRad-Thickness" y="FlangeSize" z="0"/>
+            <Vertex exist="Height&gt;1.5" x="Width-NotchSize-BendRad-Thickness" y="FlangeSize+NotchSize" z="0"/>
+            <Vertex exist="Height&gt;1.5" x="Width-BendRad-Thickness" y="FlangeSize+NotchSize" z="0"/>
+            <Vertex x="IfElse(Height&gt;1.5,Width-BendRad-Thickness,Width-2*BendRad-2*Thickness)" y="Depth-BendRad-2*Thickness-PartsGap" z="0"/>
+            <Vertex x="IfElse(Height&gt;1.5,BendRad+Thickness,0)" y="Depth-BendRad-2*Thickness-PartsGap" z="0"/>
+            <Vertex exist="Height&gt;1.5" x="BendRad+Thickness" y="FlangeSize+NotchSize" z="0"/>
+            <Vertex exist="Height&gt;1.5" x="BendRad + Thickness+NotchSize" y="FlangeSize+NotchSize" z="0"/>
+            <Vertex exist="Height&gt;1.5" x="BendRad + Thickness+NotchSize" y="FlangeSize" z="0"/>
+            <Vertex exist="Height&gt;1.5" x="0" y="FlangeSize" z="0"/>
+          </Vertices>
+        </PolyFace>
+      </Components>
+    </Assembly>
+    <Assembly designer="4.3.1" name="Cover" tag="3D" template="true" verified="false" version="6">
+      <Description>The top of a u-shape box</Description>
+      <DesignID/>
+      <MetalInfo color="TopColor" material="MetalType" thickness="Thickness"/>
+      <Parameters>
+        <Parameter default="Overhang" description="" name="Overhang"/>
+        <Parameter default="PartsGap" description="" name="PartsGap"/>
+        <Parameter default="Width+2*Thickness+2*PartsGap" description="the length of the top" name="Width"/>
+        <Parameter default="Depth+Overhang" description="the depth of the top" name="Depth"/>
+        <Parameter default="Depth" description="" name="TotalD"/>
+        <Parameter default="Width" description="" name="TotalW"/>
+        <Parameter default="Height" description="" name="TotalH"/>
+        <Parameter default="Height+Thickness+PartsGap" description="the height of the top" name="Height"/>
+        <Parameter default="Thickness" description="the thickness of the top" name="Thickness"/>
+        <Parameter default="MetalType" description="The Metal Type used" name="MetalType"/>
+        <Parameter default="BendRad" description="the bend radius" name="BendRad"/>
+        <Parameter default="TopColor" description="" name="TopColor"/>
+        <Parameter default="FlangeSize" description="the width of a flange" name="FlangeSize"/>
+        <Parameter default="HoleRadius" description="the hole diameter for screws in assembly" name="HoleRadius"/>
+        <Parameter default="NotchSize" description="the width of a Notch" name="NotchSize"/>
+        <Parameter default="TabSize" description="" name="TabSize"/>
+        <Parameter default="ChassisFlangeHoleOffset" description="" name="ChassisFlangeHoleOffset"/>
+        <Parameter default="HoleOffsetH" description="" name="HoleOffsetH"/>
+        <Parameter default="HoleOffsetD" description="" name="HoleOffsetD"/>
+        <Parameter default="Width-2*TabSize-2*NotchSize" description="" name="FLW"/>
+        <Parameter default="IfElse(Height&gt;1.5,Depth-2*Thickness-BendRad-FlangeSize-NotchSize-PartsGap,Depth-2*Thickness-PartsGap)" description="" name="FLD"/>
+        <Parameter default="Height-Thickness-TabSize-NotchSize" description="" name="FLH"/>
+      </Parameters>
+      <Connections>
+        <Relative child="Top-Chassis Point" parent="Chassis-Top Point" rotation="180" virtual="0.0"/>
+      </Connections>
+      <Components>
+        <RectFace length="Width - 2*BendRad - 2*Thickness" name="Top" pickable="true" template="true" verified="false" version="6" width="Depth-BendRad-Thickness">
+          <FaceCoordinateTransform>
+            <Origin dx="Width - 2*Thickness - BendRad - PartsGap" dy="Overhang"/>
+            <xDir dx="-1.0" dy="0.0"/>
+            <yDir dx="0.0" dy="1.0"/>
+          </FaceCoordinateTransform>
+          <Connections>
+            <Absolute/>
+          </Connections>
+          <Components>
+            <Bend angle="90" irad="BendRad" kfactor="0.5" length="Depth-BendRad-Thickness" name="Cover-Left Side" taper0="-BendRad" template="true" verified="false" version="6">
+              <Connections>
+                <Seam childSideLoc="0" parentSide="1" parentSideLoc="Depth-BendRad-Thickness"/>
+              </Connections>
+              <Components>
+                <RectFace length="Depth-Thickness" name="Left Side" pickable="true" template="true" verified="false" version="6" width="Height - Thickness - BendRad">
+                  <FaceCoordinateTransform invertX="true">
+                    <Origin dx="Depth - Overhang" dy="Height - (BendRad+Thickness)"/>
+                    <xDir dx="-1.0" dy="0.0"/>
+                    <yDir dx="0.0" dy="-1.0"/>
+                  </FaceCoordinateTransform>
+                  <Connections>
+                    <Seam childSideLoc="0" parentSide="1" parentSideLoc="-BendRad"/>
+                  </Connections>
+                  <Components/>
+                  <Flats name="Left Side Flats">
+                    <Rectangle OriginX="0" OriginY="0" color="Black" exist="TotalH&gt; 1.5" height="TotalH-TabSize-NotchSize" name="Front Flange Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="Thickness+BendRad+FlangeSize"/>
+                    <Rectangle OriginX="-Overhang" OriginY="Height-0.25" color="Black" height=".25" name="Top Bend Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="Depth"/>
+                    <Rectangle OriginX="IfElse(TotalH&gt;1.5,Thickness+BendRad+FlangeSize+NotchSize,-Overhang)" OriginY="0" color="Black" height="FlangeSize+BendRad+Thickness" name="Bottom Flange Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="IfElse(TotalH&gt;1.5,TotalD - FlangeSize - BendRad - Thickness-NotchSize,Depth)"/>
+                    <Circle OriginX="IfElse(TotalH&gt;1.5,Depth - Overhang - (FLD/2+Thickness + PartsGap),Depth - Overhang - TotalD/2)" OriginY="BendRad+Thickness+FlangeSize/2" color="Black" exist="TotalD GEQ 12" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+                    <Circle OriginX="IfElse(Height&gt;1.5,BendRad+Thickness+FlangeSize+NotchSize+HoleOffsetD,ChassisFlangeHoleOffset)" OriginY="BendRad+Thickness+FlangeSize/2" color="Black" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+                    <Circle OriginX="IfElse(TotalH&gt;1.5,Depth - Overhang - HoleOffsetD-Thickness-PartsGap,Depth - Overhang - ChassisFlangeHoleOffset)" OriginY="BendRad+Thickness+FlangeSize/2" color="Black" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+                    <Circle OriginX="BendRad+Thickness+FlangeSize/2" OriginY="Height - (BendRad+Thickness) - (-BendRad+PartsGap+TabSize+NotchSize+HoleOffsetH)" color="Black" exist="TotalH&gt;1.5" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+                    <Circle OriginX="BendRad+Thickness+FlangeSize/2" OriginY="Height - (BendRad+Thickness) - (-BendRad+PartsGap + TotalH/2+.275)" color="Black" exist="IfElse(10&gt;TotalH,0.0,1.0)" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+                  </Flats>
+                </RectFace>
+              </Components>
+              <Flats name="Cover-Left Side Flats"/>
+            </Bend>
+            <Bend angle="90" irad="BendRad" kfactor="0.5" length="Width-2*BendRad-2*Thickness" name="Cover-Rear" taper0="-BendRad-Thickness" taper1="-BendRad-Thickness" template="true" verified="false" version="6">
+              <Connections>
+                <Seam childSideLoc="0" parentSide="2" parentSideLoc="Width-2*BendRad-2*Thickness"/>
+              </Connections>
+              <Components>
+                <RectFace length="Width" name="Rear" pickable="true" template="true" verified="false" version="6" width="Height - Thickness - BendRad">
+                  <FaceCoordinateTransform invertX="true">
+                    <Origin dx="Width - Thickness - PartsGap" dy="Height - (BendRad+Thickness)"/>
+                    <xDir dx="-1.0" dy="0.0"/>
+                    <yDir dx="0.0" dy="-1.0"/>
+                  </FaceCoordinateTransform>
+                  <Connections>
+                    <Seam childSideLoc="0" parentSide="1" parentSideLoc="-BendRad-Thickness"/>
+                  </Connections>
+                  <Components/>
+                  <Flats name="Rear Flats">
+                    <Line OriginX="2.6303332530000003" OriginY="1.5130542342000002" color="Yellow Pantone 123C" dx="0.041999999999999815" dy="-0.02100000000000013" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>dd523e1a-0e5a-44f0-bab4-63871ac25140</ID>
+                    </Line>
+                    <Line OriginX="2.684333253" OriginY="1.5310542342000002" color="Yellow Pantone 123C" dx="-0.020000000000000018" dy="-0.040000000000000036" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>831cfd78-cd6c-47cd-ad22-694f94341633</ID>
+                    </Line>
+                    <CircleArc3 OriginX="2.845333253" OriginY="1.4960542342" color="Yellow Pantone 123C" name="arc" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <PtEnd dx="-0.18000000000000016" dy="0.0"/>
+                      <PtOn dx="-0.09999999999999964" dy="0.1399999999999999"/>
+                      <ID>8594bb82-932c-46b6-ad6a-9363991144c6</ID>
+                    </CircleArc3>
+                    <Text2D OriginX="2.8980765727" OriginY="1.3839936189000002" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="7.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>e61a3fed-9316-4812-b145-e4179f7463e0</ID>0V</Text2D>
+                    <Text2D OriginX="2.72" OriginY="1.3800000000000001" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="7.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>e61a3fed-9316-4812-b145-e4179f7463e0</ID>4.5V</Text2D>
+                    <Line OriginX="3.2242708061000003" OriginY="1.5130701869" color="Yellow Pantone 123C" dx="0.041999999999999815" dy="-0.02100000000000013" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>dd523e1a-0e5a-44f0-bab4-63871ac25140</ID>
+                    </Line>
+                    <Line OriginX="3.2782708061" OriginY="1.5310701869" color="Yellow Pantone 123C" dx="-0.020000000000000018" dy="-0.040000000000000036" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>831cfd78-cd6c-47cd-ad22-694f94341633</ID>
+                    </Line>
+                    <CircleArc3 OriginX="3.4392708061" OriginY="1.4960701869000002" color="Yellow Pantone 123C" name="arc" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <PtEnd dx="-0.18000000000000016" dy="0.0"/>
+                      <PtOn dx="-0.09999999999999964" dy="0.1399999999999999"/>
+                      <ID>8594bb82-932c-46b6-ad6a-9363991144c6</ID>
+                    </CircleArc3>
+                    <Text2D OriginX="3.5250095716" OriginY="1.3800095716" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="7.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>e61a3fed-9316-4812-b145-e4179f7463e0</ID>2ms</Text2D>
+                    <Text2D OriginX="3.3000000000000003" OriginY="1.3800000000000001" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="7.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>e61a3fed-9316-4812-b145-e4179f7463e0</ID>20ms</Text2D>
+                    <Line OriginX="4.5342335554" OriginY="1.5180350911" color="Yellow Pantone 123C" dx="0.041999999999999815" dy="-0.02100000000000013" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>dd523e1a-0e5a-44f0-bab4-63871ac25140</ID>
+                    </Line>
+                    <Line OriginX="4.5882335554" OriginY="1.5360350911" color="Yellow Pantone 123C" dx="-0.020000000000000018" dy="-0.040000000000000036" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>831cfd78-cd6c-47cd-ad22-694f94341633</ID>
+                    </Line>
+                    <CircleArc3 OriginX="4.7492335554" OriginY="1.5010350911" color="Yellow Pantone 123C" name="arc" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <PtEnd dx="-0.18000000000000016" dy="0.0"/>
+                      <PtOn dx="-0.09999999999999964" dy="0.1399999999999999"/>
+                      <ID>8594bb82-932c-46b6-ad6a-9363991144c6</ID>
+                    </CircleArc3>
+                    <Text2D OriginX="4.8162233598" OriginY="1.3604162401000002" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="7.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>e61a3fed-9316-4812-b145-e4179f7463e0</ID>2ms</Text2D>
+                    <Text2D OriginX="4.58" OriginY="1.36" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="7.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>e61a3fed-9316-4812-b145-e4179f7463e0</ID>20ms</Text2D>
+                    <CircleArc3 OriginX="5.34" OriginY="1.5" color="Yellow Pantone 123C" name="arc" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <PtEnd dx="-0.18000000000000016" dy="0.0"/>
+                      <PtOn dx="-0.09999999999999964" dy="0.1399999999999999"/>
+                      <ID>8594bb82-932c-46b6-ad6a-9363991144c6</ID>
+                    </CircleArc3>
+                    <Line OriginX="5.179" OriginY="1.535" color="Yellow Pantone 123C" dx="-0.020000000000000018" dy="-0.040000000000000036" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>831cfd78-cd6c-47cd-ad22-694f94341633</ID>
+                    </Line>
+                    <Line OriginX="5.125" OriginY="1.517" color="Yellow Pantone 123C" dx="0.041999999999999815" dy="-0.02100000000000013" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>dd523e1a-0e5a-44f0-bab4-63871ac25140</ID>
+                    </Line>
+                    <Text2D OriginX="5.3849291910999995" OriginY="1.3595279248" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="7" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>e61a3fed-9316-4812-b145-e4179f7463e0</ID>0V</Text2D>
+                    <Text2D OriginX="5.195985031" OriginY="1.3540000048" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="7" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>e61a3fed-9316-4812-b145-e4179f7463e0</ID>4.5V</Text2D>
+                    <Circle OriginX="4.2" OriginY="0.5" filled="False" name="circle" onBottom="true" radius="0.0925" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                      <ID>02d51ebf-96cf-45eb-9cb5-2f83070ef5ef</ID>
+                    </Circle>
+                    <Text2D OriginX="4.16" OriginY="1.54" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>GND</Text2D>
+                    <Line OriginX="4.0" OriginY="2.68" color="Yellow Pantone 123C" dx="2.68" dy="0.0" name="line" onBottom="true" rotation="0.0" thickness="3.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>6f0a8918-f371-437b-826a-453e18b6c176</ID>
+                    </Line>
+                    <Line OriginX="4.0" OriginY="2.68" color="Yellow Pantone 123C" dx="-2.706392074399998" dy="0.0" name="line" onBottom="true" rotation="0.0" thickness="3.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>cc70cbd0-1078-4092-ae05-6e9fd46a7666</ID>
+                    </Line>
+                    <Line OriginX="4.0" OriginY="2.679" color="Yellow Pantone 123C" dx="0.0" dy="-0.5634629328189811" name="line" onBottom="true" rotation="0.0" thickness="3.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>8cd0221a-385e-47d2-a5d3-980fd0d82eb5</ID>
+                    </Line>
+                    <Text2D OriginX="2.56" OriginY="2.2600000000000002" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>Shield</Text2D>
+                    <Text2D OriginX="3.0" OriginY="2.1" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>Trip V</Text2D>
+                    <Text2D OriginX="3.5" OriginY="2.2600000000000002" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>Trip</Text2D>
+                    <Text2D OriginX="2.54" OriginY="2.1" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>GND</Text2D>
+                    <Text2D OriginX="3.5140538342699297" OriginY="2.0992326102739503" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>Time</Text2D>
+                    <Text2D OriginX="3.7600000000000002" OriginY="2.48" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="11.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>9e86d07f-81dd-46b4-a0bc-1cc99b005bb9</ID>Trip detect channel B</Text2D>
+                    <Text2D OriginX="5.7" OriginY="2.48" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="11.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>9e86d07f-81dd-46b4-a0bc-1cc99b005bb9</ID>Trip detect channel A</Text2D>
+                    <Text2D OriginX="4.8" OriginY="2.1" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>Time</Text2D>
+                    <Text2D OriginX="5.76" OriginY="2.1" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>GND</Text2D>
+                    <Text2D OriginX="4.78" OriginY="2.2600000000000002" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>Trip</Text2D>
+                    <Text2D OriginX="5.36" OriginY="2.1" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>Trip V</Text2D>
+                    <Text2D OriginX="5.78" OriginY="2.24" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>Shield</Text2D>
+                    <Text2D OriginX="2.2" OriginY="1.54" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>(Pre-amp out)</Text2D>
+                    <Text2D OriginX="6.62" OriginY="1.54" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>(Pre-amp out)</Text2D>
+                    <Text2D OriginX="2.06" OriginY="2.36" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="11.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>9e86d07f-81dd-46b4-a0bc-1cc99b005bb9</ID>PMT SIG</Text2D>
+                    <Text2D OriginX="6.54" OriginY="2.36" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="11.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>9e86d07f-81dd-46b4-a0bc-1cc99b005bb9</ID>PMT SIG</Text2D>
+                    <Text2D OriginX="7.68" OriginY="2.58" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="12.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>f7c541ac-b00d-436c-bc64-bc6f3f539ac1</ID>TTL HV CTL</Text2D>
+                    <Rectangle OriginX="5.0" OriginY="0.18" color="Black" filled="False" height="1.063" name="rectangle" onBottom="true" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6" width="2.6">
+                      <ID>2e22d1e8-d54b-4d7b-b236-1bacf3e8821f</ID>
+                    </Rectangle>
+                    <Circle OriginX="1.75" OriginY="2.03" color="Black" filled="False" name="circle" onBottom="true" radius="0.2525" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                      <ID>921b04a9-53e2-4d88-a1c8-a3deaefb8319</ID>
+                    </Circle>
+                    <Rectangle OriginX="-0.031080517459225354" OriginY="2.41721567941641" color="Black" height="0.25" name="Top Bend Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="Width-2*Thickness"/>
+                    <Rectangle OriginX="6.998" OriginY="1.766" color="Black" filled="False" height="0.725" name="rectangle" onBottom="true" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6" width="0.485">
+                      <ID>c9e585b3-d183-40bf-915a-7f1615ba3ec4</ID>
+                    </Rectangle>
+                    <Circle OriginX="6.25" OriginY="2.03" color="Black" filled="False" name="circle" onBottom="true" radius="0.2525" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                      <ID>ee8301f1-8d38-47fc-95ab-fd78b62478b7</ID>
+                    </Circle>
+                    <Rectangle OriginX="2.245" OriginY="1.733" color="Black" filled="False" height="0.3" name="rectangle" onBottom="true" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6" width="3.5">
+                      <ID>734a6dc2-c4f7-4854-b7b9-4c8b26e91d4b</ID>
+                    </Rectangle>
+                    <Line OriginX="1.291" OriginY="2.7" color="Yellow Pantone 123C" dx="0.0" dy="-1.270890754426138" name="line" onBottom="true" rotation="0.0" thickness="3.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>1c650d14-304a-4975-8605-42c4f804db4b</ID>
+                    </Line>
+                    <Line OriginX="6.66" OriginY="2.7" color="Yellow Pantone 123C" dx="-1.951757999999991E-4" dy="-1.2680029703000002" name="line" onBottom="true" rotation="0.0" thickness="3.0" type="SILKSCREEN" verified="false" version="6">
+                      <ID>553284b5-7074-4a7a-904e-187e052a397e</ID>
+                    </Line>
+                    <Line OriginX="6.5600000000000005" OriginY="1.54" dx="-5.2" dy="0.0" name="line" onBottom="true" rotation="0.0" thickness="1.0" type="CONSTRUCT" verified="false" version="6">
+                      <ID>c05cfc22-6119-46e3-a5f2-fad6da4f1735</ID>
+                    </Line>
+                    <Rectangle OriginX="0.305" OriginY="1.7" filled="False" height="0.066" name="rectangle" onBottom="true" rotation="0.0" thickness="1.0" type="CONSTRUCT" verified="false" version="6" width="7.61">
+                      <ID>928b6847-2c1d-4413-827e-e76b2b44bd34</ID>
+                    </Rectangle>
+                    <Text2D OriginX="4.18" OriginY="1.3800000000000001" color="Yellow Pantone 123C" fontFamily="Arial" fontSize="10.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+                      <ID>a60fcdc2-0cbf-4fad-af14-b6b50ab7106f</ID>test pt</Text2D>
+                  </Flats>
+                </RectFace>
+              </Components>
+              <Flats name="Cover-Rear Flats"/>
+            </Bend>
+            <Bend angle="90" irad="BendRad" kfactor="0.5" length="Depth-BendRad-Thickness" name="Right Side Bend" taper1="-BendRad" template="true" verified="false" version="6">
+              <Connections>
+                <Seam childSideLoc="0" parentSide="3" parentSideLoc="Depth-(BendRad+Thickness)"/>
+              </Connections>
+              <Components>
+                <RectFace length="Depth-Thickness" name="Right Side" pickable="true" template="true" verified="false" version="6" width="Height - Thickness - BendRad">
+                  <FaceCoordinateTransform>
+                    <Origin dx="Overhang" dy="Height - (BendRad+Thickness)"/>
+                    <xDir dx="1.0" dy="0.0"/>
+                    <yDir dx="0.0" dy="-1.0"/>
+                  </FaceCoordinateTransform>
+                  <AttachPts>
+                    <MatePt name="Top-Chassis Point" onBottom="false" x="Depth - Thickness-PartsGap" y="Height - 2*Thickness - 2*BendRad" z="0"/>
+                  </AttachPts>
+                  <Connections>
+                    <Seam childSideLoc="0" parentSide="1" parentSideLoc="0"/>
+                  </Connections>
+                  <Components/>
+                  <Flats name="Right Side Flats">
+                    <Rectangle OriginX="0" OriginY="0" color="Black" exist="TotalH &gt; 1.5" height="TotalH-TabSize-NotchSize" name="Front Flange Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="Thickness+BendRad+FlangeSize"/>
+                    <Rectangle OriginX="0" OriginY="Height - 0.25" color="Black" height=".25" name="Top Bend Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="Depth"/>
+                    <Rectangle OriginX="IfElse(TotalH&gt;1.5,Thickness+BendRad+FlangeSize+NotchSize,-Overhang)" OriginY="0" color="Black" height="FlangeSize+BendRad+Thickness" name="Bottom Flange Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="IfElse(TotalH&gt;1.5,Depth-Overhang-BendRad-Thickness-FlangeSize-NotchSize, Depth)"/>
+                    <Circle OriginX="IfElse(TotalH&gt;1.5,Thickness+BendRad+FlangeSize+NotchSize+FLD/2,TotalD/2)" OriginY="BendRad+Thickness + FlangeSize/2" color="Black" exist="IfElse(12&gt;TotalD,0.0,1.0)" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+                    <Circle OriginX="IfElse(TotalH&gt;1.5,Depth-Thickness-HoleOffsetD-PartsGap-Overhang,Depth-ChassisFlangeHoleOffset-Overhang)" OriginY="BendRad+Thickness + FlangeSize/2" color="Black" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+                    <Circle OriginX="IfElse(TotalH&gt;1.5,Thickness+BendRad+FlangeSize+NotchSize+HoleOffsetD,ChassisFlangeHoleOffset)" OriginY="BendRad+Thickness + FlangeSize/2" color="Black" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+                    <Circle OriginX="Thickness+BendRad+(FlangeSize)/2" OriginY="Height - (BendRad+Thickness) -(-BendRad+PartsGap+TabSize+NotchSize+HoleOffsetH)" color="Black" exist="TotalH&gt; 1.5" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+                    <Circle OriginX="Thickness+BendRad+(FlangeSize)/2" OriginY="Height - (BendRad+Thickness) - (-BendRad+PartsGap+TotalH/2+.275)" color="Black" exist="IfElse(10&gt;TotalH,0.0,1.0)" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+                  </Flats>
+                </RectFace>
+              </Components>
+              <Flats name="Right Side Bend Flats"/>
+            </Bend>
+          </Components>
+          <Flats name="Top Flats">
+            <Circle OriginX="1.25" OriginY="4.25" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>001b6bfd-4b71-4dee-b458-b37082ce9e0e</ID>
+            </Circle>
+            <Rectangle OriginX="Width-Thickness-PartsGap-0.25" OriginY="-Overhang" color="Black" height="Depth-0.25" name="Right Bend Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width=".25"/>
+            <Rectangle OriginX="-Thickness-PartsGap" OriginY="-Overhang" color="Black" height="Depth-0.25" name="Left Bend Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width=".25"/>
+            <Rectangle OriginX="-Thickness-PartsGap" OriginY="Depth-Overhang-0.25" color="Black" height=".25" name="Rear Bend Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="Width"/>
+            <Rectangle OriginX="TabSize + NotchSize" OriginY="-Overhang" color="Black" exist="TotalW GEQ 18" height="BendRad+Thickness+FlangeSize+Overhang" name="Front Flange Exclusion" onBottom="true" rotation="0" template="true" type="EXCLUSION" verified="false" version="6" width="TotalW-2*TabSize-2*NotchSize"/>
+            <Circle OriginX="TabSize+NotchSize+FLW-HoleOffsetD" OriginY="BendRad+Thickness+(FlangeSize)/2" color="Black" exist="TotalW GEQ 18" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+            <Circle OriginX="TabSize+NotchSize+FLW/2" OriginY="BendRad+Thickness+(FlangeSize)/2" color="Black" exist="TotalW GEQ 18" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+            <Circle OriginX="TabSize+NotchSize+HoleOffsetD" OriginY="BendRad+Thickness+(FlangeSize)/2" color="Black" exist="TotalW GEQ 18" name="circle" onBottom="true" radius="HoleRadius" rotation="0" template="true" type="CUTOUT" verified="false" version="6"/>
+            <Thing2D OriginX="0.5" OriginY="3.0" name="new assembly" onBottom="true" rotation="0.0" tag="Cutout" verified="false" version="6">
+              <ID>523a78f4-2c44-46fb-bb5e-ab4aee030a16</ID>
+              <Bounds height="1.0" width="0.5" x="-0.125" y="-0.375"/>
+              <Flats name="new assembly">
+                <Circle OriginX="(0.75)-(0.5)" OriginY="(2.75)-(3.0)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>9ad6bc32-25e9-4809-91ca-cf8d909e63f3</ID>
+                </Circle>
+                <Circle OriginX="(0.75)-(0.5)" OriginY="(3.25)-(3.0)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>44b7c78b-1a4f-4f9a-aa32-7035fc6dc15c</ID>
+                </Circle>
+                <Circle OriginX="(0.5)-(0.5)" OriginY="(3.5)-(3.0)" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>ad45171d-b140-4395-813a-50724c3b0abe</ID>
+                </Circle>
+                <Circle OriginX="0.0" OriginY="0.0" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>c3f8b4b9-2ff3-4767-8a90-d627d5109517</ID>
+                </Circle>
+              </Flats>
+            </Thing2D>
+            <Thing2D OriginX="0.5" OriginY="2.0" name="new assembly" onBottom="true" rotation="0.0" tag="Cutout" verified="false" version="6">
+              <ID>523a78f4-2c44-46fb-bb5e-ab4aee030a16</ID>
+              <Bounds height="1.0" width="0.5" x="-0.125" y="-0.375"/>
+              <Flats name="new assembly">
+                <Circle OriginX="(0.75)-(0.5)" OriginY="(2.75)-(3.0)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>9ad6bc32-25e9-4809-91ca-cf8d909e63f3</ID>
+                </Circle>
+                <Circle OriginX="(0.75)-(0.5)" OriginY="(3.25)-(3.0)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>44b7c78b-1a4f-4f9a-aa32-7035fc6dc15c</ID>
+                </Circle>
+                <Circle OriginX="(0.5)-(0.5)" OriginY="(3.5)-(3.0)" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>ad45171d-b140-4395-813a-50724c3b0abe</ID>
+                </Circle>
+                <Circle OriginX="0.0" OriginY="0.0" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>c3f8b4b9-2ff3-4767-8a90-d627d5109517</ID>
+                </Circle>
+              </Flats>
+            </Thing2D>
+            <Thing2D OriginX="0.5" OriginY="1.0" name="new assembly" onBottom="true" rotation="0.0" tag="Cutout" verified="false" version="6">
+              <ID>523a78f4-2c44-46fb-bb5e-ab4aee030a16</ID>
+              <Bounds height="1.0" width="0.5" x="-0.125" y="-0.375"/>
+              <Flats name="new assembly">
+                <Circle OriginX="(0.75)-(0.5)" OriginY="(2.75)-(3.0)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>9ad6bc32-25e9-4809-91ca-cf8d909e63f3</ID>
+                </Circle>
+                <Circle OriginX="(0.75)-(0.5)" OriginY="(3.25)-(3.0)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>44b7c78b-1a4f-4f9a-aa32-7035fc6dc15c</ID>
+                </Circle>
+                <Circle OriginX="(0.5)-(0.5)" OriginY="(3.5)-(3.0)" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>ad45171d-b140-4395-813a-50724c3b0abe</ID>
+                </Circle>
+                <Circle OriginX="0.0" OriginY="0.0" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>c3f8b4b9-2ff3-4767-8a90-d627d5109517</ID>
+                </Circle>
+              </Flats>
+            </Thing2D>
+            <Thing2D OriginX="1.0" OriginY="3.5" name="new assembly" onBottom="true" rotation="0.0" tag="Cutout" verified="false" version="6">
+              <ID>523a78f4-2c44-46fb-bb5e-ab4aee030a16</ID>
+              <Bounds height="1.0" width="0.5" x="-0.125" y="-0.375"/>
+              <Flats name="new assembly">
+                <Circle OriginX="(0.75)-(0.5)" OriginY="(2.75)-(3.0)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>9ad6bc32-25e9-4809-91ca-cf8d909e63f3</ID>
+                </Circle>
+                <Circle OriginX="(0.75)-(0.5)" OriginY="(3.25)-(3.0)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>44b7c78b-1a4f-4f9a-aa32-7035fc6dc15c</ID>
+                </Circle>
+                <Circle OriginX="(0.5)-(0.5)" OriginY="(3.5)-(3.0)" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>ad45171d-b140-4395-813a-50724c3b0abe</ID>
+                </Circle>
+                <Circle OriginX="0.0" OriginY="0.0" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>c3f8b4b9-2ff3-4767-8a90-d627d5109517</ID>
+                </Circle>
+              </Flats>
+            </Thing2D>
+            <Thing2D OriginX="1.0" OriginY="2.5" name="new assembly" onBottom="true" rotation="0.0" tag="Cutout" verified="false" version="6">
+              <ID>523a78f4-2c44-46fb-bb5e-ab4aee030a16</ID>
+              <Bounds height="1.0" width="0.5" x="-0.125" y="-0.375"/>
+              <Flats name="new assembly">
+                <Circle OriginX="(0.75)-(0.5)" OriginY="(2.75)-(3.0)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>9ad6bc32-25e9-4809-91ca-cf8d909e63f3</ID>
+                </Circle>
+                <Circle OriginX="(0.75)-(0.5)" OriginY="(3.25)-(3.0)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>44b7c78b-1a4f-4f9a-aa32-7035fc6dc15c</ID>
+                </Circle>
+                <Circle OriginX="(0.5)-(0.5)" OriginY="(3.5)-(3.0)" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>ad45171d-b140-4395-813a-50724c3b0abe</ID>
+                </Circle>
+                <Circle OriginX="0.0" OriginY="0.0" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>c3f8b4b9-2ff3-4767-8a90-d627d5109517</ID>
+                </Circle>
+              </Flats>
+            </Thing2D>
+            <Thing2D OriginX="1.0" OriginY="1.5" name="new assembly" onBottom="true" rotation="0.0" tag="Cutout" verified="false" version="6">
+              <ID>523a78f4-2c44-46fb-bb5e-ab4aee030a16</ID>
+              <Bounds height="1.0" width="0.5" x="-0.125" y="-0.375"/>
+              <Flats name="new assembly">
+                <Circle OriginX="(0.75)-(0.5)" OriginY="(2.75)-(3.0)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>9ad6bc32-25e9-4809-91ca-cf8d909e63f3</ID>
+                </Circle>
+                <Circle OriginX="(0.75)-(0.5)" OriginY="(3.25)-(3.0)" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>44b7c78b-1a4f-4f9a-aa32-7035fc6dc15c</ID>
+                </Circle>
+                <Circle OriginX="(0.5)-(0.5)" OriginY="(3.5)-(3.0)" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>ad45171d-b140-4395-813a-50724c3b0abe</ID>
+                </Circle>
+                <Circle OriginX="0.0" OriginY="0.0" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+                  <ID>c3f8b4b9-2ff3-4767-8a90-d627d5109517</ID>
+                </Circle>
+              </Flats>
+            </Thing2D>
+            <Circle OriginX="0.5" OriginY="4.0" color="Black" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>c3f8b4b9-2ff3-4767-8a90-d627d5109517</ID>
+            </Circle>
+            <Circle OriginX="0.75" OriginY="4.25" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>44b7c78b-1a4f-4f9a-aa32-7035fc6dc15c</ID>
+            </Circle>
+            <Circle OriginX="0.75" OriginY="3.75" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>9ad6bc32-25e9-4809-91ca-cf8d909e63f3</ID>
+            </Circle>
+            <Circle OriginX="1.0" OriginY="1.0" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>b95e850c-b151-4e24-9d31-bae1c365c461</ID>
+            </Circle>
+            <Circle OriginX="1.25" OriginY="0.75" filled="False" name="circle" onBottom="true" radius="0.125" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>8473b4a1-6f7a-405d-9391-608c9693499c</ID>
+            </Circle>
+          </Flats>
+        </RectFace>
+      </Components>
+    </Assembly>
+  </Components>
+</Assembly>

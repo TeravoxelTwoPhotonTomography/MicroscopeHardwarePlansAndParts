@@ -1,0 +1,15 @@
+How to program the FPGA:
+
+
+1) Connect the FPGA board to the PC via USB
+
+2) Open a command window on the PC and cd to the synth directory
+
+3) Type one of the following commands:
+
+
+To load the bit file to the RAM inside the FPGA part: butterflyprog -v -d OneShot\ B -f ../xise/oneshot.bit
+(This will take less than a second)
+
+To flash the bit file to the EEPROM: butterflyprog.exe -v -d OneShot\ B -f ../xise/oneshot.bit -b bscan_spi_xc3s250e.bit -sa -r
+(This will take a few minutes to finish)

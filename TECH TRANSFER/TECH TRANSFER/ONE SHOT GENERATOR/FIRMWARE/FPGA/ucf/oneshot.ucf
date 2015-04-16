@@ -1,0 +1,57 @@
+
+# Crystal Clock - use 50MHz onboard oscillator
+NET "clkin" IOSTANDARD = LVCMOS33;
+NET "clkin" LOC = "P35";
+NET "clkin" TNM_NET = "clkin";
+TIMESPEC TS_clkin = PERIOD "clkin" 20.000ns HIGH 50%;
+PIN "DCM_SP_INST.CLK2X" TNM = "coreclk";
+
+#NET "usb_clkin" IOSTANDARD = LVCMOS33;
+#NET "usb_clkin" LOC = "P83";
+#NET "usb_clkin" TNM_NET = "usb_clkin";
+#TIMESPEC TS_usb_clkin = PERIOD "usb_clkin" 16.66ns HIGH 50%;
+#PIN "usb_pll/DCM_baseClock.CLK0" TNM = "usbclk";
+
+NET "hardreset" LOC = "P43" ;
+
+#IO connector
+#NET "io0" LOC = "P36" | IOSTANDARD = LVCMOS33;
+#NET "io1" LOC = "P38" | IOSTANDARD = LVCMOS33;
+#NET "io2" LOC = "P53" | IOSTANDARD = LVCMOS33;
+#NET "io3" LOC = "P54" | IOSTANDARD = LVCMOS33;
+#NET "io4" LOC = "P57" | IOSTANDARD = LVCMOS33;
+#NET "io5" LOC = "P58" | IOSTANDARD = LVCMOS33;
+#NET "io6" LOC = "P60" | IOSTANDARD = LVCMOS33;
+#NET "io7" LOC = "P61" | IOSTANDARD = LVCMOS33;
+#NET "io8" LOC = "P62" | IOSTANDARD = LVCMOS33;
+#NET "io9" LOC = "P63" | IOSTANDARD = LVCMOS33;
+#NET "io10" LOC = "P65" | IOSTANDARD = LVCMOS33;
+#NET "io11" LOC = "P66" | IOSTANDARD = LVCMOS33;
+#NET "io12" LOC = "P67" | IOSTANDARD = LVCMOS33;
+#NET "io13" LOC = "P68" | IOSTANDARD = LVCMOS33;
+#NET "io14" LOC = "P70" | IOSTANDARD = LVCMOS33;
+#NET "io15" LOC = "P71" | IOSTANDARD = LVCMOS33;
+
+#NET "usb_rxf" LOC = "P89" | IOSTANDARD = LVCMOS33;
+#NET "usb_txe" LOC = "P88" | IOSTANDARD = LVCMOS33;
+#NET "usb_rd" LOC = "P86" | IOSTANDARD = LVCMOS33;
+#NET "usb_wr" LOC = "P85" | IOSTANDARD = LVCMOS33;
+#NET "usb_oe" LOC = "P78" | IOSTANDARD = LVCMOS33;
+#NET "usb_siwua" LOC = "P83" | IOSTANDARD = LVCMOS33 | PULLUP;
+
+#NET "usb_data<0>" LOC = "P79" | IOSTANDARD = LVCMOS33;
+#NET "usb_data<1>" LOC = "P99" | IOSTANDARD = LVCMOS33;
+#NET "usb_data<2>" LOC = "P98" | IOSTANDARD = LVCMOS33;
+#NET "usb_data<3>" LOC = "P95" | IOSTANDARD = LVCMOS33;
+#NET "usb_data<4>" LOC = "P94" | IOSTANDARD = LVCMOS33;
+#NET "usb_data<5>" LOC = "P92" | IOSTANDARD = LVCMOS33;
+#NET "usb_data<6>" LOC = "P91" | IOSTANDARD = LVCMOS33;
+#NET "usb_data<7>" LOC = "P90" | IOSTANDARD = LVCMOS33;
+
+NET "cmp_p" LOC = "P57" | IOSTANDARD = LVDS_25;
+NET "cmp_n" LOC = "P58" | IOSTANDARD = LVDS_25;
+NET "pulse" LOC = "P67" | IOSTANDARD = LVCMOS33;
+
+NET "sw1" LOC = "P17" | IOSTANDARD = LVCMOS33 | PULLUP;
+NET "sw2" LOC = "P18" | IOSTANDARD = LVCMOS33 | PULLUP;
+NET "redLED" LOC = "P2" | IOSTANDARD = LVCMOS33;

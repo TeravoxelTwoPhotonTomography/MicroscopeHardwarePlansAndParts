@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Assembly designer="4.3.1" name="Flat Panel" tag="3D" verified="false" version="6">
+  <Description>A Flat Panel</Description>
+  <Manufacturer>Protocase</Manufacturer>
+  <PartNumber>Flat Panel Template</PartNumber>
+  <Revision rev="3">
+    <FaceFeatureTransfer baseRevision="2" from="Panel" to="Panel"/>
+  </Revision>
+  <ID>f8e9cf95-d386-45ab-8f0a-cca9e70773bf</ID>
+  <DesignID>Flat Panel Template rev-3</DesignID>
+  <MetalInfo color="Default Color" material="MetalType" thickness="Thickness"/>
+  <Parameters>
+    <Parameter default="8.22" description="the width of the panel" max="30" min="1" name="Width" template="true"/>
+    <Parameter default="3.5" description="the height of the panel" max="30" min="1" name="Height" template="true"/>
+    <Parameter default="12" description="the thickness of the box" name="Thickness" template="true" units="MetalThickness"/>
+    <Parameter default="Aluminum" description="the type of metal used" name="MetalType" template="true" units="MetalType"/>
+    <Parameter default="Black Sandtex, Low Gloss, Fine Texture Polyester Powder" description="the color of the top" name="Default Color" template="true" units="MetalColor"/>
+  </Parameters>
+  <Transforms>
+    <View3D invertY="1" invertZ="1" shiftY="Height" shiftZ="Thickness"/>
+  </Transforms>
+  <Connections>
+    <Absolute/>
+  </Connections>
+  <Components>
+    <Assembly designer="4.3.1" name="Panel" tag="3D" template="true" verified="false" version="6">
+      <DesignID/>
+      <MetalInfo color="Default Color" material="MetalType" thickness="Thickness"/>
+      <Parameters>
+        <Parameter default="Width" description="" name="Width"/>
+        <Parameter default="Height" description="" name="Height"/>
+        <Parameter default="Thickness" description="" name="Thickness"/>
+        <Parameter default="MetalType" description="" name="MetalType"/>
+        <Parameter default="Default Color" description="" name="Default Color"/>
+      </Parameters>
+      <Connections>
+        <Absolute/>
+      </Connections>
+      <Components>
+        <RectFace exist="1.0" length="Width" name="Panel" pickable="true" template="true" verified="false" version="6" width="Height">
+          <FaceCoordinateTransform>
+            <Origin dx="0" dy="Height"/>
+            <xDir dx="1.0" dy="0.0"/>
+            <yDir dx="0.0" dy="-1.0"/>
+          </FaceCoordinateTransform>
+          <Connections>
+            <Absolute/>
+          </Connections>
+          <Components/>
+          <Flats name="Panel Flats">
+            <Thing2D OriginX="6.22" OriginY="2.5" color="Black" name="Triax" onBottom="true" rotation="90" tag="Cutout" verified="false" version="6">
+              <Description>BNC-Triax .453 hole</Description>
+              <Manufacturer>Pomona</Manufacturer>
+              <PartNumber>5219</PartNumber>
+              <ID>bce12fab-f554-492b-aada-eadc413cdf4f</ID>
+              <Bounds height=".453" width=".453" x="-0.2265" y="-0.2265"/>
+              <Flats name="Triax">
+                <Rectangle OriginX="0.17146665711703288" OriginY="0.09330760100132957" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>d6a9dd5d-1d0a-4787-bb47-c1bc2e377fe2</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.18961595104652204" OriginY="0.16063562686878935" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>bffb7cec-581c-4b1b-b04a-e7ae15fd4930</ID>
+                </Rectangle>
+                <Rectangle OriginX="-0.181" OriginY="-0.122" color="Black" filled="False" height="0.244" name="rectangle" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6" width="0.37">
+                  <ID>2d007d96-1fdf-4fae-a007-8af2629c39e1</ID>
+                </Rectangle>
+                <CircleArc3 OriginX="0.131" OriginY="0.08382754037793441" color="Black" name="arc" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6">
+                  <PtEnd dx="1.4660764792727982E-4" dy="-0.16799993603033775"/>
+                  <PtOn dx="-0.28497157489312575" dy="-0.08587241300260631"/>
+                  <ID>bb61dfde-f272-46e1-b29d-c792a1d57d24</ID>
+                </CircleArc3>
+              </Flats>
+            </Thing2D>
+            <Thing2D OriginX="2.0" OriginY="2.5" color="Black" name="Triax" onBottom="true" rotation="90" tag="Cutout" verified="false" version="6">
+              <Description>BNC-Triax .453 hole</Description>
+              <Manufacturer>Pomona</Manufacturer>
+              <PartNumber>5219</PartNumber>
+              <ID>bce12fab-f554-492b-aada-eadc413cdf4f</ID>
+              <Bounds height=".453" width=".453" x="-0.2265" y="-0.2265"/>
+              <Flats name="Triax">
+                <Rectangle OriginX="0.17146665711703288" OriginY="0.09330760100132957" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>d6a9dd5d-1d0a-4787-bb47-c1bc2e377fe2</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.18961595104652204" OriginY="0.16063562686878935" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>bffb7cec-581c-4b1b-b04a-e7ae15fd4930</ID>
+                </Rectangle>
+                <Rectangle OriginX="-0.181" OriginY="-0.122" color="Black" filled="False" height="0.244" name="rectangle" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6" width="0.37">
+                  <ID>2d007d96-1fdf-4fae-a007-8af2629c39e1</ID>
+                </Rectangle>
+                <CircleArc3 OriginX="0.131" OriginY="0.08382754037793441" color="Black" name="arc" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6">
+                  <PtEnd dx="1.4660764792727982E-4" dy="-0.16799993603033775"/>
+                  <PtOn dx="-0.28497157489312575" dy="-0.08587241300260631"/>
+                  <ID>bb61dfde-f272-46e1-b29d-c792a1d57d24</ID>
+                </CircleArc3>
+              </Flats>
+            </Thing2D>
+            <Rectangle OriginX="5.73" OriginY="0.25" color="Yellow Pantone 142C" height="0.3" name="rectangle" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6" width="1.5">
+              <ID>25ec9141-6d8a-4f07-8dd8-60cfd5cf1d4b</ID>
+            </Rectangle>
+            <Rectangle OriginX="1.0" OriginY="0.3" color="Yellow Pantone 142C" height="0.3" name="rectangle" onBottom="true" rotation="0.0" thickness="1.0" type="SILKSCREEN" verified="false" version="6" width="1.5">
+              <ID>25ec9141-6d8a-4f07-8dd8-60cfd5cf1d4b</ID>
+            </Rectangle>
+            <Text2D OriginX="6.22" OriginY="0.75" color="Yellow Pantone 142C" fontFamily="Dialog" fontSize="12" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+              <ID>8d3df7a3-44e6-4561-8fb5-2cd14cd6cc9f</ID>V-  R-  R+  V+ </Text2D>
+            <Text2D OriginX="1.0" OriginY="0.75" color="Yellow Pantone 142C" fontFamily="Dialog" fontSize="12" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+              <ID>8d3df7a3-44e6-4561-8fb5-2cd14cd6cc9f</ID>V-  R-  R+  V+ </Text2D>
+            <Text2D OriginX="1.83" OriginY="2.9" color="Yellow Pantone 142C" fontFamily="Dialog" fontSize="38" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+              <ID>0d6b87d9-6750-490e-bc82-5974bfd48357</ID>X</Text2D>
+            <Text2D OriginX="3.2" OriginY="3.0" color="Yellow Pantone 142C" fontFamily="Dialog" fontSize="24" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+              <ID>0859e4c7-5cba-4bc5-bd82-fcddca7b1e15</ID>Galvo Driver</Text2D>
+            <Circle OriginX="7.142" OriginY="1.521" filled="False" name="circle" onBottom="true" radius="0.0455" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>43bb75a1-10f9-42f4-9b4e-97e50763e52a</ID>
+            </Circle>
+            <Circle OriginX="6.298" OriginY="1.521" filled="False" name="circle" onBottom="true" radius="0.0455" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>43bb75a1-10f9-42f4-9b4e-97e50763e52a</ID>
+            </Circle>
+            <Rectangle OriginX="6.205" OriginY="1.078" filled="False" height="0.343" name="rectangle" onBottom="true" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6" width="1.029">
+              <ID>f0dca65e-f09c-4bab-96b5-ef01d6c5866e</ID>
+            </Rectangle>
+            <Circle OriginX="1.922" OriginY="1.521" filled="False" name="circle" onBottom="true" radius="0.0455" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>43bb75a1-10f9-42f4-9b4e-97e50763e52a</ID>
+            </Circle>
+            <Circle OriginX="1.078" OriginY="1.521" filled="False" name="circle" onBottom="true" radius="0.0455" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>43bb75a1-10f9-42f4-9b4e-97e50763e52a</ID>
+            </Circle>
+            <Rectangle OriginX="6.057016098173077" OriginY="1.5326991110872026" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6" width="0.0">
+              <ID>b0fa70f0-c717-496b-b734-bfd4b74418ce</ID>
+            </Rectangle>
+            <Rectangle OriginX="0.985" OriginY="1.078" filled="False" height="0.343" name="rectangle" onBottom="true" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6" width="1.029">
+              <ID>f0dca65e-f09c-4bab-96b5-ef01d6c5866e</ID>
+            </Rectangle>
+            <Thing2D OriginX="3.0" OriginY="2.5" color="Black" name="new item" onBottom="true" rotation="90.0" tag="Cutout" verified="false" version="6">
+              <Description>BNC isolated</Description>
+              <Manufacturer>Amphenol</Manufacturer>
+              <PartNumber>112431</PartNumber>
+              <ID>f350dd06-9ae6-4e2e-bfb7-b24c0d4cb3a5</ID>
+              <Bounds height=".382" width=".382" x="-0.191" y="-0.191"/>
+              <Flats name="new item">
+                <CircleArc3 OriginX="0.10052975492409925" OriginY="0.06770244370862832" color="Black" name="arc" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6">
+                  <PtEnd dx="1.1802080240598534E-4" dy="-0.13524188036791074"/>
+                  <PtOn dx="-0.22146477799995312" dy="-0.0678142561537421"/>
+                  <ID>2d2615b8-8eb8-4f9e-b57e-80d75c3d68e5</ID>
+                </CircleArc3>
+                <Rectangle OriginX="0.0" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.01">
+                  <ID>f5f5f403-d13d-4264-9309-c69aa7123ade</ID>
+                </Rectangle>
+                <Rectangle OriginX="-0.09" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.08">
+                  <ID>343ad707-215c-49b6-b951-e85502346e77</ID>
+                </Rectangle>
+                <Rectangle OriginX="-0.158" OriginY="-0.106" color="Black" filled="False" height="0.212" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.316">
+                  <ID>6c48c3bf-50e2-4f0b-8620-fc1687402172</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.15" OriginY="0.07" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3beea967-27fd-4bb4-8539-813ee285a200</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.15" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>a7fa0880-4397-406d-ad29-230914f3ae11</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3864b131-d099-496b-b888-5a6873f0b682</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>b645abe9-4b9f-4772-90a5-95edabf5dd45</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3866160d-e777-4d9d-b22e-2d1a8c0f5140</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>20f07005-ce32-437e-aee4-3abf852bcfac</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>0c901c9e-b143-45fc-9d02-1c67f33d954a</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="-0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3a96fe60-7d72-4eed-8e2e-80c8bf8df04e</ID>
+                </Rectangle>
+              </Flats>
+            </Thing2D>
+            <Circle OriginX="0.5" OriginY="3.125" filled="False" name="circle" onBottom="true" radius="0.0835" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>ca247b27-1834-4fad-9ee1-37844f1627d9</ID>
+            </Circle>
+            <Circle OriginX="0.5" OriginY="0.375" filled="False" name="circle" onBottom="true" radius="0.0835" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>ca247b27-1834-4fad-9ee1-37844f1627d9</ID>
+            </Circle>
+            <Circle OriginX="7.72" OriginY="0.375" filled="False" name="circle" onBottom="true" radius="0.0835" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>ca247b27-1834-4fad-9ee1-37844f1627d9</ID>
+            </Circle>
+            <Circle OriginX="7.72" OriginY="3.125" filled="False" name="circle" onBottom="true" radius="0.0835" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>ca247b27-1834-4fad-9ee1-37844f1627d9</ID>
+            </Circle>
+            <Thing2D OriginX="1.0" OriginY="2.5" color="Black" name="new item" onBottom="true" rotation="90.0" tag="Cutout" verified="false" version="6">
+              <Description>BNC isolated</Description>
+              <Manufacturer>Amphenol</Manufacturer>
+              <PartNumber>112431</PartNumber>
+              <ID>f350dd06-9ae6-4e2e-bfb7-b24c0d4cb3a5</ID>
+              <Bounds height=".382" width=".382" x="-0.191" y="-0.191"/>
+              <Flats name="new item">
+                <CircleArc3 OriginX="0.10052975492409925" OriginY="0.06770244370862832" color="Black" name="arc" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6">
+                  <PtEnd dx="1.1802080240598534E-4" dy="-0.13524188036791074"/>
+                  <PtOn dx="-0.22146477799995312" dy="-0.0678142561537421"/>
+                  <ID>2d2615b8-8eb8-4f9e-b57e-80d75c3d68e5</ID>
+                </CircleArc3>
+                <Rectangle OriginX="0.0" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.01">
+                  <ID>f5f5f403-d13d-4264-9309-c69aa7123ade</ID>
+                </Rectangle>
+                <Rectangle OriginX="-0.09" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.08">
+                  <ID>343ad707-215c-49b6-b951-e85502346e77</ID>
+                </Rectangle>
+                <Rectangle OriginX="-0.158" OriginY="-0.106" color="Black" filled="False" height="0.212" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.316">
+                  <ID>6c48c3bf-50e2-4f0b-8620-fc1687402172</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.15" OriginY="0.07" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3beea967-27fd-4bb4-8539-813ee285a200</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.15" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>a7fa0880-4397-406d-ad29-230914f3ae11</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3864b131-d099-496b-b888-5a6873f0b682</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>b645abe9-4b9f-4772-90a5-95edabf5dd45</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3866160d-e777-4d9d-b22e-2d1a8c0f5140</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>20f07005-ce32-437e-aee4-3abf852bcfac</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>0c901c9e-b143-45fc-9d02-1c67f33d954a</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="-0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3a96fe60-7d72-4eed-8e2e-80c8bf8df04e</ID>
+                </Rectangle>
+              </Flats>
+            </Thing2D>
+            <Thing2D OriginX="5.22" OriginY="2.5" color="Black" name="new item" onBottom="true" rotation="90.0" tag="Cutout" verified="false" version="6">
+              <Description>BNC isolated</Description>
+              <Manufacturer>Amphenol</Manufacturer>
+              <PartNumber>112431</PartNumber>
+              <ID>f350dd06-9ae6-4e2e-bfb7-b24c0d4cb3a5</ID>
+              <Bounds height=".382" width=".382" x="-0.191" y="-0.191"/>
+              <Flats name="new item">
+                <Rectangle OriginX="0.01" OriginY="-0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3a96fe60-7d72-4eed-8e2e-80c8bf8df04e</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>0c901c9e-b143-45fc-9d02-1c67f33d954a</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>20f07005-ce32-437e-aee4-3abf852bcfac</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3866160d-e777-4d9d-b22e-2d1a8c0f5140</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>b645abe9-4b9f-4772-90a5-95edabf5dd45</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3864b131-d099-496b-b888-5a6873f0b682</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.15" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>a7fa0880-4397-406d-ad29-230914f3ae11</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.15" OriginY="0.07" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3beea967-27fd-4bb4-8539-813ee285a200</ID>
+                </Rectangle>
+                <Rectangle OriginX="-0.158" OriginY="-0.106" color="Black" filled="False" height="0.212" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.316">
+                  <ID>6c48c3bf-50e2-4f0b-8620-fc1687402172</ID>
+                </Rectangle>
+                <Rectangle OriginX="-0.09" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.08">
+                  <ID>343ad707-215c-49b6-b951-e85502346e77</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.0" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.01">
+                  <ID>f5f5f403-d13d-4264-9309-c69aa7123ade</ID>
+                </Rectangle>
+                <CircleArc3 OriginX="0.10052975492409925" OriginY="0.06770244370862832" color="Black" name="arc" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6">
+                  <PtEnd dx="1.1802080240598534E-4" dy="-0.13524188036791074"/>
+                  <PtOn dx="-0.22146477799995312" dy="-0.0678142561537421"/>
+                  <ID>2d2615b8-8eb8-4f9e-b57e-80d75c3d68e5</ID>
+                </CircleArc3>
+              </Flats>
+            </Thing2D>
+            <Thing2D OriginX="7.22" OriginY="2.5" color="Black" name="new item" onBottom="true" rotation="90.0" tag="Cutout" verified="false" version="6">
+              <Description>BNC isolated</Description>
+              <Manufacturer>Amphenol</Manufacturer>
+              <PartNumber>112431</PartNumber>
+              <ID>f350dd06-9ae6-4e2e-bfb7-b24c0d4cb3a5</ID>
+              <Bounds height=".382" width=".382" x="-0.191" y="-0.191"/>
+              <Flats name="new item">
+                <CircleArc3 OriginX="0.10052975492409925" OriginY="0.06770244370862832" color="Black" name="arc" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6">
+                  <PtEnd dx="1.1802080240598534E-4" dy="-0.13524188036791074"/>
+                  <PtOn dx="-0.22146477799995312" dy="-0.0678142561537421"/>
+                  <ID>2d2615b8-8eb8-4f9e-b57e-80d75c3d68e5</ID>
+                </CircleArc3>
+                <Rectangle OriginX="0.0" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.01">
+                  <ID>f5f5f403-d13d-4264-9309-c69aa7123ade</ID>
+                </Rectangle>
+                <Rectangle OriginX="-0.09" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.08">
+                  <ID>343ad707-215c-49b6-b951-e85502346e77</ID>
+                </Rectangle>
+                <Rectangle OriginX="-0.158" OriginY="-0.106" color="Black" filled="False" height="0.212" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.316">
+                  <ID>6c48c3bf-50e2-4f0b-8620-fc1687402172</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.15" OriginY="0.07" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3beea967-27fd-4bb4-8539-813ee285a200</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.15" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>a7fa0880-4397-406d-ad29-230914f3ae11</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3864b131-d099-496b-b888-5a6873f0b682</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>b645abe9-4b9f-4772-90a5-95edabf5dd45</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3866160d-e777-4d9d-b22e-2d1a8c0f5140</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>20f07005-ce32-437e-aee4-3abf852bcfac</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>0c901c9e-b143-45fc-9d02-1c67f33d954a</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="-0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3a96fe60-7d72-4eed-8e2e-80c8bf8df04e</ID>
+                </Rectangle>
+              </Flats>
+            </Thing2D>
+            <Thing2D OriginX="3.0" OriginY="22500.0" color="Black" name="new item" onBottom="true" rotation="90.0" tag="Cutout" verified="false" version="6">
+              <Description>BNC isolated</Description>
+              <Manufacturer>Amphenol</Manufacturer>
+              <PartNumber>112431</PartNumber>
+              <ID>f350dd06-9ae6-4e2e-bfb7-b24c0d4cb3a5</ID>
+              <Bounds height=".382" width=".382" x="-0.191" y="-0.191"/>
+              <Flats name="new item">
+                <Rectangle OriginX="0.01" OriginY="-0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3a96fe60-7d72-4eed-8e2e-80c8bf8df04e</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>0c901c9e-b143-45fc-9d02-1c67f33d954a</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.01" OriginY="0.01" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>20f07005-ce32-437e-aee4-3abf852bcfac</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3866160d-e777-4d9d-b22e-2d1a8c0f5140</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>b645abe9-4b9f-4772-90a5-95edabf5dd45</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.14" OriginY="0.14" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3864b131-d099-496b-b888-5a6873f0b682</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.15" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>a7fa0880-4397-406d-ad29-230914f3ae11</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.15" OriginY="0.07" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.0">
+                  <ID>3beea967-27fd-4bb4-8539-813ee285a200</ID>
+                </Rectangle>
+                <Rectangle OriginX="-0.158" OriginY="-0.106" color="Black" filled="False" height="0.212" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.316">
+                  <ID>6c48c3bf-50e2-4f0b-8620-fc1687402172</ID>
+                </Rectangle>
+                <Rectangle OriginX="-0.09" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.08">
+                  <ID>343ad707-215c-49b6-b951-e85502346e77</ID>
+                </Rectangle>
+                <Rectangle OriginX="0.0" OriginY="0.0" color="Black" filled="False" height="0.0" name="rectangle" onBottom="true" rotation="0.0" thickness="0.01" type="CUTOUT" verified="false" version="6" width="0.01">
+                  <ID>f5f5f403-d13d-4264-9309-c69aa7123ade</ID>
+                </Rectangle>
+                <CircleArc3 OriginX="0.10052975492409925" OriginY="0.06770244370862832" color="Black" name="arc" onBottom="true" rotation="0.0" thickness="10.0" type="CUTOUT" verified="false" version="6">
+                  <PtEnd dx="1.1802080240598534E-4" dy="-0.13524188036791074"/>
+                  <PtOn dx="-0.22146477799995312" dy="-0.0678142561537421"/>
+                  <ID>2d2615b8-8eb8-4f9e-b57e-80d75c3d68e5</ID>
+                </CircleArc3>
+              </Flats>
+            </Thing2D>
+            <Circle OriginX="3.0" OriginY="1.25" filled="False" name="circle" onBottom="true" radius="0.5" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>c45aa5ef-5175-4626-b991-ddf8601af8a2</ID>
+            </Circle>
+            <Circle OriginX="5.22" OriginY="1.25" filled="False" name="circle" onBottom="true" radius="0.5" rotation="0.0" thickness="1.0" type="CUTOUT" verified="false" version="6">
+              <ID>fa2fbd07-ec7a-49dc-a638-bcd6602dbeb5</ID>
+            </Circle>
+            <Text2D OriginX="6.05" OriginY="2.9" color="Yellow Pantone 142C" fontFamily="Dialog" fontSize="38.0" fontStyle="Regular" name="Text" onBottom="true" rotation="0.0" sizeCorrected="true" type="SILKSCREEN" verified="false" version="6">
+              <ID>5c9388d9-4f4c-4c11-8cdc-766f20bf1844</ID>Y</Text2D>
+          </Flats>
+        </RectFace>
+      </Components>
+    </Assembly>
+  </Components>
+</Assembly>
